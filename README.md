@@ -135,3 +135,12 @@ Deze template dient te worden gezien als hulpmiddel om BIO compliancy te bereike
 
 Dit project kan handelsmerken of logo's bevatten voor projecten, producten of diensten. Geautoriseerd gebruik van Microsoft handelsmerken of logo's zijn onderworpen aan en moeten de [Handelsmerk- en merkrichtlijnen van Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) volgen. Het gebruik van handelsmerken of logo's van Microsoft in gewijzigde versies van dit project mag geen verwarring veroorzaken of sponsoring door Microsoft impliceren. Elk gebruik van handelsmerken of logo's van derden is onderworpen aan het beleid van die derden.
 
+## Bronnen
+
+|Titel|Link|
+|---|---|
+| Baseline Informatiebeveiliging Overheid | https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/bio-en-ensia/baseline-informatiebeveiliging-overheid/ |
+| BIO versie 1.04 | https://www.cip-overheid.nl/media/13kduqsi/bio-versie-104zv_def.pdf |
+| Handreiking BIO v2.0 opmaat | https://bio-overheid.nl/category/producten?product=Handreiking_BIO2_0_opmaat
+| BIO Thema-uitwerking Clouddiensten | https://www.cip-overheid.nl/productcategorieen-en-workshops/producten?product=Clouddiensten |
+| CIS Controls v8 Mapping to ISO/IEC 27002:2022 | https://www.cisecurity.org/insights/white-papers/cis-controls-v8-mapping-to-iso-iec2-27002-2022 |
