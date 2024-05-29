@@ -4,8 +4,8 @@
 
 > As this project is specific for the Dutch government the rest of this article will be in Dutch.
 
-Dit project omvat een Initiative Policy Template, welke ingeladen kan worden in Microsoft 365 door middel van Microsoft 365 desired state configuration. 
-Dit project wordt geleverd inclusief een PowerBi dashboard zodat men auditen of resources in een Azure omgeving voldoen aan de BIO (Baseline informatiebeveiliging Overheid).
+Dit project omvat een Initiative Policy Template, welke kan worden vergeleken met Microsoft 365 door middel van [Microsoft 365 Desired State Configuration](https://microsoft365dsc.com) (M365DSC). 
+Dit project wordt geleverd inclusief een PowerBI dashboard zodat men kan auditen of resources in een Microsoft 365 omgeving voldoen aan de BIO (Baseline informatiebeveiliging Overheid).
 
 De BIO is het basisnormenkader voor informatiebeveiliging binnen alle overheidslagen. De BIO is van toepassing voor de volgende bestuursorganen:
 
@@ -21,6 +21,24 @@ Meer informatie hierover vind je op: [CIP overheid Cloud thema](https://cip-over
 
 >AFBEELDING INVOEGEN 
 
+## Mappen van BIO Controls op maatregelen in Microsoft 365
+De BIO beschrijft een aantal controls en maatregelen welke overheidsinstanties kunnen gebruiken om risico's met betrekking tot informatie beveiliging te mitigeren. Deze maatregelen zijn grotendeels gebaseerd op industriestandaarden, zoals ISO IEC 27002. Meer informatie kan gevonden worden op de website van [BIO Overheid](https://www.bio-overheid.nl/category/producten?product=Handreiking_BIO2_0_opmaat).
+
+De controls en maatregelen beschrijven diverse mitigaties, van technologisch en fysiek tot procedureel en organisatorisch. 
+
+> [!IMPORTANT]
+> DISLAIMER: Deze BIO assessment tool, gericht op het beoordelen van de technische configuratie van Microsoft 365 (de publieke clouddienst), zal niet alle controls omvatten en dient daarom alleen gebruikt te worden om inzicht te krijgen in potentiële misconfiguratie van een Microsoft 365 tenant in relatie tot BIO controls.
+
+Om tot een betrouwbare mapping te komen, worden verschillende industrie standaarden gebruikt. Ten eerste wordt de ['Center for Internet Security' (CIS) Benchmark for Microsoft 365 (v3.0.0)](https://www.cisecurity.org/benchmark/microsoft_365) gebruikt als het startpunt voor een aanzienlijke hoeveelheid aanbevolen controls. In dit document worden alle controls gemapped op 'CIS Control Safeguards'. 
+Deze zijn vervolgens door CIS gemapped op de ['ISO 27002 2022'](https://www.cisecurity.org/insights/white-papers/cis-controls-v8-mapping-to-iso-iec2-27002-2022) standaard. De BIO is vervolgens weer gebaseerd op deze 'ISO 27002 2022' standaard, waardoor de cirkel van de CIS Benchmark for Microsoft 365 naar de BIO 2022 rond is.
+
+![alt text](./media/CISforM365ToBIO.png?raw=true "CIS for M365 to BIO mapping")
+
+Naast de CIS Benchmark, zijn de maatregelen om de BIO 2022 controls af te dekken uitgebreid met een aantal Microsoft best practices.
+
+Beperkingen:
+- Op dit moment dekt de blueprint de core services in Microsoft 365 af, inclusief Entra ID (Azure AD), Exchange Online, SharePoint Online, OneDrive for Business, Teams, Purview and Defender for Office 365. Ondersteuning voor Intune wordt aan gewerkt.
+
 ## Bijdragen
 
 Dit project verwelkomt bijdragen en suggesties. Voor de meeste bijdragen moet je akkoord gaan met een Licentieovereenkomst voor Donateurs (CLA) waarin wordt verklaard dat je het recht hebt om ons het recht te geven om je bijdrage te gebruiken en dat je dat ook daadwerkelijk doet. Ga voor meer informatie naar [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com).
@@ -29,43 +47,91 @@ Wanneer je een pull-verzoek indient, zal een CLA-bot automatisch bepalen of je e
 
 Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) aangenomen. Zie voor meer informatie over de Code of Conduct de ['Veelgestelde Vragen'](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met [opencode@microsoft.com](mailto:opencode@microsoft.com) met eventuele aanvullende vragen of opmerkingen.
 
-## Implementeren op Azure
+## Installatie
 
-| Versie | Implementeer |
-|---|---|
-| 2.2.0 |[![Deploy to Microsoft 365](https://aka.ms/deploytoazurebutton)](deploy link) |
+### Vereisten
 
-## Updates van policies definities
+Om deze oplossing te gebruiken, zijn een aantal zaken vereist:
+- Tools machine waar de oplossing op uitgevoerd kan worden
+  - Deze moet een versie van Windows draaien die nog in support is. Dit kan een client of server versie van Windows zijn.
+- Service principal met de juiste rechten.
+  - Deze wordt aangemaakt tijdens stap X
+- Administratieve credentials met 'Global Administrator' rechten
+  - Dit account is nodig om de benodigde service principal aan te maken.
+- Download de benodigde scripts uit deze repository
+  - Kopieer de gedownloade scripts naar een folder op de Tools machine
+- [PowerBI Desktop](https://powerbi.microsoft.com/en-us/desktop/) is geïnstalleerd op de Tools machine
+  - Deze is te downloaden via de [Microsoft Store](https://aka.ms/pbidesktopstore) of als [handmatige download](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
-Het policy-initiatief houdt ook bij welke policies zijn verwijderd door hun parameters nog steeds op te nemen in het initiatief, maar met de aanduiding 'deprecated'. Hierdoor is het mogelijk om het policy-set bij te werken zonder dat de toewijzingen veranderen, waardoor er geen extra actie nodig is dan het implementeren van dit policy-initiatief op dezelfde managementgroep of abonnement waar het oude policy-initiatief ook was geïmplementeerd.
+### Voorbereidingen
+
+Deze voorbereidende stappen hoeven maar maar één keer te worden, tenzij de Tools machine wordt vervangen of de een nieuwe versie van de oplossing wordt gebruikt (wat mogelijk nieuwe rechten vereist voor de service principal).
+
+#### Installeren benodigde componenten
+
+De oplossing maakt gebruik van een aantal componenten welke eerste geïnstalleerd moeten worden. Hiervoor is een PowerShell script beschikbaar.
+
+Installeer alle benodigde componenten op de Tools machine door de volgende stappen uit te voeren:
+1. Login op de Tools machine
+2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+3. Voer het volgende commando uit: `Get-ChildItem | Unblock-File`
+4. Voer het volgende commando uit: `Get-ExectionPolicy`
+5. Als het antwoord van het vorige commando `Restricted` of `AllSigned` is:
+    - Controleer of het mogelijk is c.q. is toegestaan om deze setting aan te passen naar `RemoteSigned`
+    - Zo ja, voer het volgende commando uit `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+    - Zo nee, zorg ervoor dat of de scripts een digitale handtekening krijgen met een vertrouwd certificaat (bij `AllSigned`) of dat scripts (tijdelijk) toegestaan worden (bij `Restricted`)
+6. Voer het volgende commando uit: `.\PrepEnvironment.ps1`
+
+#### Aanmaken van de service principal
+
+Om in te kunnen loggen in Microsoft 365, maakt deze oplossing gebruik van een service principal/application credential.
+
+Om deze aan te maken, de juiste rechten te geven en een authenticatie certificaat te configureren, voer de volgende stappen uit:
+1. Login op de Tools machine
+2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+3. Voer het volgende commando uit: `.\PrepBIOServicePrincipal.ps1 -Credential (Get-Credential)`
+    - Wanneer het gebruikte account Multi-Factor Authentication gebruikt, kan het zijn dat je nogmaals een password en vervolgens MFA prompt krijgt.
+
+> [!NOTE]
+> Dit commando zal een service principal genaamd 'BIOAssessment' aanmaken en een 'self-signed certificate' gebruiken.
+> - Als je je eigen naam wil gebruiken, voeg dan de parameter `ServicePrincipalName` toe.
+> - Als je je eigen certificaat wil gebruiken, voeg dan de parameter `CertificatePath` toe en verwijs naar de '.cer' file van dat certificaat.
+
+> [!NOTE]
+> Als er een error getoond wordt tijdens de 'Admin Consent approval' stap, log dan in in de [Entra ID Admin Portal](https://entra.microsoft.com/), zoek de service principal op en geef [handmatig toestemming](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#grant-tenant-wide-admin-consent-in-enterprise-apps-pane).
+
+4. Sla de details van de aangemaakte service principal op, welke worden getoond aan het eind van het script. Deze informatie is nodig in volgende stappen.
+
+### Uitvoeren van de assessment
+
+Voor het uitvoeren van de assessment, wordt er eerst een export van de huidige configuratie gemaakt waarna deze vervolgens wordt geanalyseerd en vergeleken met de BIO template. Vervolgens worden de analyse resultaten ingeladen in het Power BI dashboard.
+
+#### Maken van de export
+
+1. Login op de Tools machine
+2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+3. Voer het volgende commando uit: `.\RunBIOExport.ps1 -ApplicationId <Application Id> -TenantId <tenantname>.onmicrosoft.com -CertificateThumbprint <Certificate Thumbprint>`
+    - Vul de juiste gegevens in, zoals deze tijdens het maken van de service principal zijn genoteerd.
+
+#### Analyseren van de export
+1. Login op de Tools machine
+2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+3. Voer het volgende commando uit: `.\RunBIOAssessment.ps1`
+4. Wanneer er geen fouten zijn opgetreden, zal er een Output folder zijn aangemaakt met daarin een folder met de datum van vandaag. Hierin zouden diverse files moeten zijn aangemaakt:
+    1. Één CSV file
+    2. Één PS1 file
+    3. Één PSD1 file
+    4. Drie JSON files
+
+#### Updaten Power BI dashboard
+
+[TO DO]
 
 ## Disclaimer
 
-Deze template dient te worden gezien als hulpmiddel om BIO compliancy te bereiken. Onder geen enkele voorwaarde garandeert Microsoft dat deze template direct leidt tot een volledige BIO compliancy ten aanzien van resources in de Microsoft Azure omgeving.
+Deze template dient te worden gezien als hulpmiddel om BIO compliancy te bereiken. Onder geen enkele voorwaarde garandeert Microsoft dat deze template direct leidt tot een volledige BIO compliancy ten aanzien van resources in de Microsoft 365 omgeving.
 
 ## Handelsmerken
 
-Dit project kan handelsmerken of logo's bevatten voor projecten, producten of diensten. Geautoriseerd gebruik van Microsoft handelsmerken of logo's zijn onderworpen aan en moeten [Handelsmerk- en merkrichtlijnen van Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) volgen. Het gebruik van handelsmerken of logo's van Microsoft in gewijzigde versies van dit project mag geen verwarring veroorzaken of sponsoring door Microsoft impliceren. Elk gebruik van handelsmerken of logo's van derden is onderworpen aan het beleid van die derden.
+Dit project kan handelsmerken of logo's bevatten voor projecten, producten of diensten. Geautoriseerd gebruik van Microsoft handelsmerken of logo's zijn onderworpen aan en moeten de [Handelsmerk- en merkrichtlijnen van Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) volgen. Het gebruik van handelsmerken of logo's van Microsoft in gewijzigde versies van dit project mag geen verwarring veroorzaken of sponsoring door Microsoft impliceren. Elk gebruik van handelsmerken of logo's van derden is onderworpen aan het beleid van die derden.
 
-
-## Contributing
-
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
-
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Trademarks
-
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.

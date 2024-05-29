@@ -1,0 +1,888 @@
+[
+  {
+    "ResourceName": "AADSecurityDefaults",
+    "ResourceInstanceName": "CIS-5.1.1.1",
+    "BIOControls": [
+      "100"
+    ],
+    "DisplayName": "CIS-5.1.1.1",
+    "IsEnabled": false
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.1",
+    "BIOControls": [
+      "8.2"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.1",
+    "BuiltInControls": [
+      "Mfa"
+    ],
+    "IncludeRoles": [
+      "Global Administrator",
+      "Security Administrator",
+      "SharePoint Administrator",
+      "Exchange Administrator",
+      "Conditional Access Administrator",
+      "Helpdesk Administrator",
+      "Billing Administrator",
+      "User Administrator",
+      "Authentication Administrator",
+      "Application Administrator",
+      "Cloud Application Administrator",
+      "Password Administrator",
+      "Privileged Authentication Administrator",
+      "Privileged Role Administrator"
+    ],
+    "PersistentBrowserIsEnabled": false,
+    "SignInFrequencyIsEnabled": true,
+    "State": "enabled"
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.4",
+    "BIOControls": [
+      "8.5",
+      "8.9"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.4",
+    "IncludeRoles": [
+      "Global Administrator",
+      "Security Administrator",
+      "SharePoint Administrator",
+      "Exchange Administrator",
+      "Conditional Access Administrator",
+      "Helpdesk Administrator",
+      "Billing Administrator",
+      "User Administrator",
+      "Authentication Administrator",
+      "Application Administrator",
+      "Cloud Application Administrator",
+      "Password Administrator",
+      "Privileged Authentication Administrator",
+      "Privileged Role Administrator"
+    ],
+    "PersistentBrowserIsEnabled": true,
+    "SignInFrequencyIsEnabled": true
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.2",
+    "BIOControls": [
+      "5.15"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.2",
+    "BuiltInControls": [
+      "Mfa"
+    ],
+    "IncludeUsers": [
+      "All"
+    ],
+    "State": "enabled"
+  },
+  {
+    "ResourceName": "AADAuthenticationMethodPolicyAuthenticator",
+    "ResourceInstanceName": "CIS-5.2.3.1",
+    "BIOControls": [
+      "6.7"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.3.1",
+    "IsSoftwareOathEnabled": false,
+    "State": "enabled"
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.5",
+    "BIOControls": [
+      "8.2"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.5",
+    "IncludeRoles": [
+      "Global Administrator",
+      "Security Administrator",
+      "SharePoint Administrator",
+      "Exchange Administrator",
+      "Conditional Access Administrator",
+      "Helpdesk Administrator",
+      "Billing Administrator",
+      "User Administrator",
+      "Authentication Administrator",
+      "Application Administrator",
+      "Cloud Application Administrator",
+      "Password Administrator",
+      "Privileged Authentication Administrator",
+      "Privileged Role Administrator"
+    ],
+    "BuiltInControls": [
+      "XXXX"
+    ]
+  },
+  {
+    "ResourceName": "AADAuthenticationStrengthPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.5",
+    "BIOControls": [
+      "8.2"
+    ],
+    "Ensure": "Present",
+    "AllowedCombinations": [
+      "windowsHelloForBusiness",
+      "fido2",
+      "x509CertificateMultiFactor",
+      "deviceBasedPush"
+    ]
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.3",
+    "BIOControls": [
+      "8.9"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.3",
+    "ClientAppTypes": [
+      "ExchangeActiveSync",
+      "Other"
+    ],
+    "IncludeUsers": [
+      "All"
+    ],
+    "BuiltInControls": [
+      "Block"
+    ],
+    "State": "enabled"
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.7",
+    "BIOControls": [
+      "8.16",
+      "8.21"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.7",
+    "SignInRiskLevels": [
+      "High",
+      "Medium"
+    ],
+    "IncludeUsers": [
+      "All"
+    ],
+    "State": "enabled"
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.6",
+    "BIOControls": [
+      "8.16",
+      "8.21"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.6",
+    "UserRiskLevels": [
+      "High",
+      "Medium"
+    ],
+    "IncludeUsers": [
+      "All"
+    ],
+    "State": "enabled"
+  },
+  {
+    "ResourceName": "AADRoleSetting",
+    "ResourceInstanceName": "CIS-5.3.1",
+    "Id": "CIS-5.3.1",
+    "BIOControls": [
+      "5.15",
+      "5.16",
+      "5.18",
+      "6.5"
+    ],
+    "ElegibilityAssignmentReqJustification": true,
+    "ElegibilityAssignmentReqMFA": true,
+    "PermanentEligibleAssignmentisExpirationRequired": true
+  },
+  {
+    "ResourceName": "AADGroup",
+    "ResourceInstanceName": "CIS-1.2.1",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "DisplayName": "CIS-1.2.1",
+    "Visibility": "Private",
+    "Ensure": "Present"
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.1.2.5",
+    "BIOControls": [
+      "100"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.1.2.5",
+    "PersistentBrowserIsEnabled": false,
+    "DeviceFilterMode": "include",
+    "DeviceFilterRule": "device.trustType -eq AzureAD"
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-5.2.2.8",
+    "BIOControls": [
+      "100"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-5.2.2.8",
+    "ExcludeRoles": [
+      "Global Administrator",
+      "Security Administrator",
+      "SharePoint Administrator",
+      "Exchange Administrator",
+      "Conditional Access Administrator",
+      "Helpdesk Administrator",
+      "Billing Administrator",
+      "User Administrator",
+      "Authentication Administrator",
+      "Application Administrator",
+      "Cloud Application Administrator",
+      "Password Administrator",
+      "Privileged Authentication Administrator",
+      "Privileged Role Administrator"
+    ],
+    "BuiltInControls": [
+      "BLOCK"
+    ],
+    "IncludeApplications": [
+      "Azure Management"
+    ]
+  },
+  {
+    "ResourceName": "EXOOrganizationConfig",
+    "ResourceInstanceName": "CIS-6.5.1",
+    "BIOControls": [
+      "5.14"
+    ],
+    "OAuth2ClientProfileEnabled": true
+  },
+  {
+    "ResourceName": "SPOTenantSettings",
+    "ResourceInstanceName": "CIS-7.2.1",
+    "BIOControls": [
+      "5.14"
+    ],
+    "LegacyAuthProtocolsEnabled": false
+  },
+  {
+    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceInstanceName": "CIS-1.3.2",
+    "BIOControls": [
+      "8.5",
+      "8.9"
+    ],
+    "Ensure": "Present",
+    "Id": "CIS-1.3.2",
+    "SignInFrequencyIsEnabled": true,
+    "SignInFrequencyType": "Hours",
+    "SignInFrequencyValue": "3",
+    "DeviceFilterRule": "device.trustType -eq AzureAD"
+  },
+  {
+    "ResourceName": "AADAuthorizationPolicy",
+    "ResourceInstanceName": "CIS-5.1.2.2",
+    "BIOControls": [
+      "8.7",
+      "8.19"
+    ],
+    "DefaultUserRoleAllowedToCreateApps": false
+  },
+  {
+    "ResourceName": "AADAuthorizationPolicy",
+    "ResourceInstanceName": "CIS-5.1.2.3",
+    "BIOControls": [
+      "100"
+    ],
+    "DefaultUserRoleAllowedToCreateTenants": false
+  },
+  {
+    "ResourceName": "AADGroup",
+    "ResourceInstanceName": "CIS-5.1.3.1",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "MembershipRule": "(user.userType -eq \"Guest\")",
+    "GroupTypes": ["DynamicMembership"],
+    "Ensure": "Present"
+  },
+  {
+    "ResourceName": "AADAuthorizationPolicy",
+    "ResourceInstanceName": "CIS-5.1.5.2",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "PermissionGrantPolicyIdsAssignedToDefaultUserRole": []
+  },
+  {
+    "ResourceName": "EXOSharingPolicy",
+    "ResourceInstanceName": "CIS-1.3.3",
+    "BIOControls": [
+      "8.9"
+    ],
+    "Enabled": false
+  },
+  {
+    "ResourceName": "EXOSafeLinksPolicy",
+    "ResourceInstanceName": "CIS-2.1.1",
+    "BIOControls": [
+      "8.1",
+      "8.7"
+    ],
+    "EnableSafeLinksForOffice": true
+  },
+  {
+    "ResourceName": "AADAuthorizationPolicy",
+    "ResourceInstanceName": "CIS-2.7",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "PermissionGrantPolicyIdsAssignedToDefaultUserRole": []
+  },
+  {
+    "ResourceName": "EXORoleAssignmentPolicy",
+    "ResourceInstanceName": "CIS-6.3.1",
+    "BIOControls": [
+        "101"
+    ],
+    "IsDefault": true,
+    "Roles": [
+      "MyVoiceMail",
+      "MyDistributionGroups",
+      "MyRetentionPolicies",
+      "MyContactInformation",
+      "MyBaseOptions",
+      "MyTextMessaging",
+      "MyDistributionGroupMembership",
+      "MyProfileInformation"
+    ]
+  },
+  {
+    "ResourceName": "O365OrgSettings",
+    "ResourceInstanceName": "CIS-1.3.4",
+    "BIOControls": [
+      "8.9"
+    ],
+    "AppsAndServicesIsAppAndServicesTrialEnabled": false,
+    "AppsAndServicesIsOfficeStoreEnabled": false
+  },
+  {
+    "ResourceName": "O365OrgSettings",
+    "ResourceInstanceName": "CIS-1.3.5",
+    "BIOControls": [
+      "8.1",
+      "8.7"
+    ],
+    "DynamicsCustomerVoiceIsInOrgFormsPhishingScanEnabled": true,
+    "FormsIsInOrgFormsPhishingScanEnabled": true
+  },
+  {
+    "ResourceName": "EXOOrganizationConfig",
+    "ResourceInstanceName": "CIS-1.3.6",
+    "BIOControls": [
+      "100"
+    ],
+    "CustomerLockboxEnabled": true
+  },
+  {
+    "ResourceName": "SCLabelPolicy",
+    "ResourceInstanceName": "CIS-3.3.1",
+    "BIOControls": [
+      "5.9",
+      "5.12",
+      "5.13",
+      "5.33",
+      "8.12"
+    ],
+    "AddModernGroupLocation": [
+      "All"
+    ]
+  },
+  {
+    "ResourceName": "SCDLPCompliancePolicy",
+    "ResourceInstanceName": "CIS-3.2.1",
+    "BIOControls": [
+      "5.9",
+      "5.10",
+      "8.1"
+    ],
+    "Ensure": "Present"
+  },
+  {
+    "ResourceName": "SCDLPCompliancePolicy",
+    "ResourceInstanceName": "CIS-3.2.2",
+    "BIOControls": [
+      "5.9",
+      "5.10",
+      "8.1"
+    ],
+    "Ensure": "Present",
+    "TeamsLocation": [
+      "All"
+    ]
+  },
+  {
+    "ResourceName": "SPOSharingSettings",
+    "ResourceInstanceName": "CIS-7.2.3",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "SharingCapability": "ExternalUserSharingOnly"
+  },
+  {
+    "ResourceName": "SPOSharingSettings",
+    "ResourceInstanceName": "CIS-7.2.4",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "MySiteSharingCapability": "ExternalUserSharingOnly"
+  },
+  {
+    "ResourceName": "SPOSharingSettings",
+    "ResourceInstanceName": "CIS-7.2.5",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "PreventExternalUsersFromResharing": true
+  },
+  {
+    "ResourceName": "SPOSharingSettings",
+    "ResourceInstanceName": "CIS-7.2.6",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "SharingDomainRestrictionMode": "AllowList"
+  },
+  {
+    "ResourceName": "SPOSharingSettings",
+    "ResourceInstanceName": "CIS-7.2.7",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "DefaultSharingLinkType": "Direct"
+  },
+  {
+    "ResourceName": "SPOSharingSettings",
+    "ResourceInstanceName": "CIS-7.2.9",
+    "BIOControls": [
+      "100"
+    ],
+    "ExternalUserExpirationRequired": true,
+    "ExternalUserExpireInDays":30
+  },
+  {
+    "ResourceName": "SPOSite",
+    "ResourceInstanceName": "CIS-7.3.4",
+    "BIOControls": [
+        "101"
+    ],
+    "DenyAddAndCustomizePages": true
+  },
+  {
+    "ResourceName": "TeamsClientConfiguration",
+    "ResourceInstanceName": "CIS-8.1.1",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "AllowBox": false,
+    "AllowDropBox": false,
+    "AllowGoogleDrive": false,
+    "AllowShareFile": false,
+    "AllowEgnyte": false
+  },
+  {
+    "ResourceName": "TeamsClientConfiguration",
+    "ResourceInstanceName": "CIS-8.1.2",
+    "BIOControls": [
+      "100"
+    ],
+    "AllowEmailIntoChannel": false
+  },
+  {
+    "ResourceName": "TeamsFederationConfiguration",
+    "ResourceInstanceName": "CIS-8.2.1",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "AllowedDomains": [],
+    "AllowFederatedUsers": true,
+    "AllowPublicUsers": false,
+    "AllowTeamsConsumer": false,
+    "AllowTeamsConsumerInbound": false
+  },
+  {
+    "ResourceName": "TeamsAppPermissionPolicy",
+    "ResourceInstanceName": "CIS-8.4.1",
+    "BIOControls": [
+      "8.7",
+      "8.19"
+    ],
+    "Identity": "Global",
+    "DefaultCatalogAppsType": "AllowedAppList",
+    "GlobalCatalogAppsType":"BlockedAppList",
+    "PrivateCatalogAppsType": "BlockedAppList"
+  },
+  {
+    "ResourceName": "TeamsMeetingPolicy",
+    "ResourceInstanceName": "CIS-8.5.1",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "AllowAnonymousUsersToJoinMeeting": false
+  },
+  {
+    "ResourceName": "TeamsMeetingPolicy",
+    "ResourceInstanceName": "CIS-8.5.2",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "AllowAnonymousUsersToStartMeeting": false
+  },
+  {
+    "ResourceName": "TeamsMeetingPolicy",
+    "ResourceInstanceName": "CIS-8.5.3",
+    "BIOControls": [
+      "5.3",
+      "5.15",
+      "5.18",
+      "8.2",
+      "8.3"
+    ],
+    "Identity": "Global",
+    "AutoAdmittedUsers":"EveryoneInCompanyExcludingGuests"
+  },
+  {
+    "ResourceName": "TeamsMeetingPolicy",
+    "ResourceInstanceName": "CIS-8.5.4",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "AllowPSTNUsersToBypassLobby":false
+  },
+  {
+    "ResourceName": "TeamsMeetingPolicy",
+    "ResourceInstanceName": "CIS-8.5.5",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "MeetingChatEnabledType": "EnabledExceptAnonymous"
+  },
+  {
+    "ResourceName": "TeamsMeetingPolicy",
+    "ResourceInstanceName": "CIS-8.5.6",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "DesignatedPresenterRoleMode": "OrganizerOnlyUserOverride"
+  },
+  {
+    "ResourceName": "TeamsMeetingPolicy",
+    "ResourceInstanceName": "CIS-8.5.7",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "AllowExternalParticipantGiveRequestControl": false
+  },
+  {
+    "ResourceName": "TeamsMessagingPolicy",
+    "ResourceInstanceName": "CIS-8.6.1",
+    "BIOControls": [
+      "100"
+    ],
+    "Identity": "Global",
+    "AllowSecurityEndUserReporting":true
+  },
+  {
+    "ResourceName": "EXOMalwareFilterPolicy",
+    "ResourceInstanceName": "CIS-2.1.2",
+    "BIOControls": [
+        "101"
+    ],
+    "EnableFileFilter": true,
+    "FileTypeAction": "Quarantine"
+  },
+  {
+    "ResourceName": "EXOHostedOutboundSpamFilterPolicy",
+    "ResourceInstanceName": "CIS-2.1.6",
+    "BIOControls": [
+      "5.2",
+      "5.24"
+    ],
+    "NotifyOutboundSpam": true
+  },
+  {
+    "ResourceName": "EXOTransportRule",
+    "ResourceInstanceName": "CIS-6.2.1",
+    "BIOControls": [
+      "100"
+    ],
+    "MessageTypeMatches": "Autoforward",
+    "SentToScope": "NotInOrganization",
+    "Mode": "Enforce",
+    "Enabled": true,
+    "RejectMessageEnhancedStatusCode": "5.7.1"
+  },
+  {
+    "ResourceName": "EXOHostedOutboundSpamFilterPolicy",
+    "ResourceInstanceName": "CIS-6.2.1",
+    "BIOControls": [
+      "100"
+    ],
+    "AutoForwardingMode": "Off"
+  },
+  {
+    "ResourceName": "EXOTransportRule",
+    "ResourceInstanceName": "CIS-6.2.2",
+    "BIOControls": [
+      "100"
+    ],
+    "SetSCL": "-1",
+    "SentToScope": "InOrganization",
+    "Mode": "Enforce",
+    "Enabled": true,
+    "Ensure":"Absent"
+  },
+  {
+    "ResourceName": "EXOSafeAttachmentPolicy",
+    "ResourceInstanceName": "CIS-2.1.4",
+    "BIOControls": [
+      "8.7"
+    ],
+    "Enable": true
+  },
+  {
+    "ResourceName": "EXOSafeAttachmentPolicy",
+    "ResourceInstanceName": "CIS-2.1.5",
+    "BIOControls": [
+      "8.7"
+    ],
+    "EnableATPForSPOTeamsODB": true,
+    "EnableSafeDocs": true,
+    "AllowSafeDocsOpen": true,
+    "Enable": true
+  },
+  {
+    "ResourceName": "EXOAntiPhishPolicy",
+    "ResourceInstanceName": "CIS-2.1.7",
+    "BIOControls": [
+      "8.7"
+    ],
+    "Enabled": true,
+    "Ensure": "Present"
+  },
+  {
+    "ResourceName": "EXOAntiPhishRule",
+    "ResourceInstanceName": "CIS-2.1.7",
+    "BIOControls": [
+      "8.7"
+    ],
+    "Enabled": true,
+    "Ensure": "Present",
+    "RecipientDomainIs": [
+      "$OrganizationName"
+    ]
+  },
+  {
+    "ResourceName": "EXODkimSigningConfig",
+    "ResourceInstanceName": "CIS-2.1.9",
+    "BIOControls": [
+      "102"
+    ],
+    "Enabled": true,
+    "Ensure": "Present",
+    "Identity": "$OrganizationName"
+  },
+  {
+    "ResourceName": "EXOMalwareFilterPolicy",
+    "ResourceInstanceName": "CIS-2.1.3",
+    "BIOControls": [
+      "5.2",
+      "5.24"
+    ],
+    "EnableInternalSenderAdminNotifications": true
+  },
+  {
+    "ResourceName": "EXOMailTips",
+    "ResourceInstanceName": "CIS-6.5.2.",
+    "BIOControls": [
+      "100"
+    ],
+    "Enabled": true,
+    "Ensure": "Present",
+    "MailTipsExternalRecipientsTipsEnabled": true
+  },
+  {
+    "ResourceName": "AADEntitlementManagementAccessPackageAssignmentPolicy",
+    "ResourceInstanceName": "CIS-5.3.2",
+    "BIOControls": [
+      "5.16"
+    ],
+    "Enabled": true,
+    "Ensure": "Present",
+    "AdvancedSettings": [
+      {
+        "CIMInstance": "MSFT_MicrosoftGraphassignmentreviewsettings",
+        "Key": "IsEnabled",
+        "Value": true
+      },
+      {
+        "CIMInstance": "MSFT_MicrosoftGraphassignmentreviewsettings",
+        "Key": "AccessReviewTimeoutBehavior",
+        "Value": "keepAccess"
+      },
+      {
+        "CIMInstance": "MSFT_MicrosoftGraphassignmentreviewsettings",
+        "Key": "RecurrenceType",
+        "Value": "quarterly"
+      },
+      {
+        "CIMInstance": "MSFT_MicrosoftGraphassignmentreviewsettings",
+        "Key": "DurationInDays",
+        "Value": 25
+      }
+    ]
+  },
+  {
+    "ResourceName": "SCAuditConfigurationPolicy",
+    "ResourceInstanceName": "CIS-3.1.1",
+    "BIOControls": [
+      "8.20",
+      "8.15"
+    ],
+    "Ensure": "Present",
+    "Workload": []
+  },
+  {
+    "ResourceName": "O365AdminAuditLogConfig",
+    "ResourceInstanceName": "CIS-3.1.1",
+    "BIOControls": [
+      "8.20",
+      "8.15"
+    ],
+    "Ensure": "Present",
+    "UnifiedAuditLogIngestionEnabled": "Enabled"
+  },
+  {
+    "ResourceName": "EXOOrganizationConfig",
+    "ResourceInstanceName": "CIS-5.3 / CIS-6.1.1",
+    "BIOControls": [
+      "8.20",
+      "8.15"
+    ],
+    "AuditDisabled": false
+  },
+  {
+    "ResourceName": "SPOAccessControlSettings",
+    "ResourceInstanceName": "CIS-7.3.1",
+    "BIOControls": [
+      "8.1",
+      "8.7"
+    ],
+    "DisallowInfectedFileDownload": true
+  },
+  {
+    "ResourceName": "ODSettings",
+    "ResourceInstanceName": "CIS-7.3.2",
+    "BIOControls": [
+      "100"
+    ],
+    "TenantRestrictionEnabled": true
+  },
+  {
+    "ResourceName": "SPOSharingSettings",
+    "ResourceInstanceName": "CISv2-6.3",
+    "BIOControls": [
+        "5.10",
+        "5.15",
+        "8.3",
+        "8.4"
+    ],
+    "RequireAnonymousLinksExpireInDays": "180"
+  },
+  {
+    "ResourceName": "O365OrgSettings",
+    "ResourceInstanceName": "CISv2-1.3.7",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "M365WebEnableUsersToOpenFilesFrom3PStorage": false
+  },
+  {
+    "ResourceName": "EXOOwaMailboxPolicy",
+    "ResourceInstanceName": "CIS-6.5.3",
+    "BIOControls": [
+      "5.10",
+      "5.15",
+      "8.3",
+      "8.4"
+    ],
+    "AdditionalStorageProvidersAvailable": false
+  },
+  {
+    "ResourceName": "O365OrgSettings",
+    "ResourceInstanceName": "Microsoft-O365.1",
+    "BIOControls": [
+        "102"
+    ],
+    "AdminCenterReportDisplayConcealedNames": false
+  },
+  {
+    "ResourceName": "SPOAccessControlSettings",
+    "ResourceInstanceName": "Microsoft-SPO.1",
+    "BIOControls": [
+      "8.12",
+      "5.14"
+    ],
+    "MarkNewFilesSensitiveByDefault": "BlockExternalSharing"
+  }
+]
