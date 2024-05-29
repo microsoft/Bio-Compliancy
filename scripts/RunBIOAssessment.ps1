@@ -15,6 +15,9 @@
     .\RunBIOAssessment.ps1
 
 .NOTES
+    More information about running this assessment can be found at:
+    https://github.com/microsoft/Bio-Compliancy/blob/main/README.md
+
     For more information about "Baseline Informatiebeveiliging Overheid" (BIO), see:
     https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/kaders-voor-cybersecurity/baseline-informatiebeveiliging-overheid/
 #>
@@ -375,7 +378,13 @@ process
                 TargetResourceName            = 'Missing'
                 TargetResourceInstanceName    = 'Missing'
                 PropertiesMatch               = 0
-                PropertyDifferences           = 'Resource missing in the current configuration'
+                PropertyDifferences           = @(
+                    @{
+                        PropertyName = 'Resource missing in the current configuration'
+                        BIO = ""
+                        Current = ""
+                    }
+                )
             }
 
             if ($bioObject.BIOControls)
@@ -452,6 +461,8 @@ process
         }
     }
 
+    <#
+    # Disabled because the M365 BIO template doesn't cover all BIO Controls and therefore will always show missing controls.
     Write-LogEntry -Object 'Checking for BIO Controls that are not covered'
     $diff = Compare-Object -ReferenceObject ( $detailedBIOControlsResults.ControlNr | Sort-Object -Unique) -DifferenceObject ($bioControlsDetails.ControlNr)
     $unprocessedControls = $diff | Where-Object { $_.SideIndicator -eq '=>' }
@@ -477,6 +488,7 @@ process
             }
         }
     }
+    #>
 
     Write-LogEntry -Object 'Completed comparing current settings with BIO Baseline'
 

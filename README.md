@@ -67,9 +67,9 @@ Om deze oplossing te gebruiken, zijn een aantal zaken vereist:
 
 Deze voorbereidende stappen hoeven maar maar één keer te worden, tenzij de Tools machine wordt vervangen of de een nieuwe versie van de oplossing wordt gebruikt (wat mogelijk nieuwe rechten vereist voor de service principal).
 
-#### Installeren benodigde componenten
+#### <ins>Installeren benodigde componenten</ins>
 
-De oplossing maakt gebruik van een aantal componenten welke eerste geïnstalleerd moeten worden. Hiervoor is een PowerShell script beschikbaar.
+De oplossing maakt gebruik van een componenten welke eerste geïnstalleerd moeten worden. Hiervoor is een PowerShell script beschikbaar.
 
 Installeer alle benodigde componenten op de Tools machine door de volgende stappen uit te voeren:
 1. Login op de Tools machine
@@ -82,7 +82,7 @@ Installeer alle benodigde componenten op de Tools machine door de volgende stapp
     - Zo nee, zorg ervoor dat of de scripts een digitale handtekening krijgen met een vertrouwd certificaat (bij `AllSigned`) of dat scripts (tijdelijk) toegestaan worden (bij `Restricted`)
 6. Voer het volgende commando uit: `.\PrepEnvironment.ps1`
 
-#### Aanmaken van de service principal
+#### <ins>Aanmaken van de service principal</ins>
 
 Om in te kunnen loggen in Microsoft 365, maakt deze oplossing gebruik van een service principal/application credential.
 
@@ -106,14 +106,14 @@ Om deze aan te maken, de juiste rechten te geven en een authenticatie certificaa
 
 Voor het uitvoeren van de assessment, wordt er eerst een export van de huidige configuratie gemaakt waarna deze vervolgens wordt geanalyseerd en vergeleken met de BIO template. Vervolgens worden de analyse resultaten ingeladen in het Power BI dashboard.
 
-#### Maken van de export
+#### <ins>Maken van de export</ins>
 
 1. Login op de Tools machine
 2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
 3. Voer het volgende commando uit: `.\RunBIOExport.ps1 -ApplicationId <Application Id> -TenantId <tenantname>.onmicrosoft.com -CertificateThumbprint <Certificate Thumbprint>`
     - Vul de juiste gegevens in, zoals deze tijdens het maken van de service principal zijn genoteerd.
 
-#### Analyseren van de export
+#### <ins>Analyseren van de export</ins>
 1. Login op de Tools machine
 2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
 3. Voer het volgende commando uit: `.\RunBIOAssessment.ps1`
@@ -123,7 +123,7 @@ Voor het uitvoeren van de assessment, wordt er eerst een export van de huidige c
     3. Één PSD1 file
     4. Drie JSON files
 
-#### Updaten Power BI dashboard
+#### <ins>Updaten Power BI dashboard</ins>
 
 [TO DO]
 

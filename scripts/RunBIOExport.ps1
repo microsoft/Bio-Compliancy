@@ -36,6 +36,9 @@
     .\RunBIOExport.ps1 -Credential (Get-Credential)
 
 .NOTES
+    More information about running this assessment can be found at:
+    https://github.com/microsoft/Bio-Compliancy/blob/main/README.md
+
     For more information about "Baseline Informatiebeveiliging Overheid" (BIO), see:
     https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/kaders-voor-cybersecurity/baseline-informatiebeveiliging-overheid/
 
