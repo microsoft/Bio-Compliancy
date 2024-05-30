@@ -4,6 +4,9 @@
 
 > As this project is specific for the Dutch government the rest of this article will be in Dutch.
 
+> [!NOTE]
+> Voor de BIO Compliancy oplossing voor Azure, ga naar dit project: https://github.com/Azure/Bio-Compliancy
+
 Dit project omvat een Initiative Policy Template, welke kan worden vergeleken met Microsoft 365 door middel van [Microsoft 365 Desired State Configuration](https://microsoft365dsc.com) (M365DSC). 
 Dit project wordt geleverd inclusief een PowerBI dashboard zodat men kan auditen of resources in een Microsoft 365 omgeving voldoen aan de BIO (Baseline informatiebeveiliging Overheid).
 
