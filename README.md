@@ -124,7 +124,18 @@ Voor het uitvoeren van de assessment, wordt er eerst een export van de huidige c
 
 #### <ins>Updaten Power BI dashboard</ins>
 
-[TO DO]
+1. Login op de Tools machine
+2. Open een Windows Verkenner
+3. Browse naar de folder waar je de scripts hebt gedownload
+4. Dubbelklik op het bestand `M365-Bio Compliance.pbit`, dit opent de Power BI Desktop
+5. Na openen wordt er gevraagd naar de locatie van de analyse files. Geef het volledige pad op van de locatie van de datum folder in Output folder van stap 4 uit de vorige sectie.
+6. Klik op de knop **Load** om de analyze bestanden in te laden en de resultaten te bekijken.
+
+![alt text](./media/dashboard.png?raw=true "Example of Power BI Dashboard")
+
+Door een categorie te selecteren en op de knop **Bekijk details** te klikken (hou tijdens de klik de Ctrl toets ingedrukt), ga je naar een detail overzicht van de betreffende categorie.
+
+Om de analyze resultaten opnieuw in te lezen, klik op de **Home** ribbon op de **Refresh** knop.
 
 ## Disclaimer
 
