@@ -1,7 +1,5 @@
 # Microsoft 365 BIO compliance Initiative Template
 
-# BIO Compliance Initiative Template
-
 > As this project is specific for the Dutch government the rest of this article will be in Dutch.
 
 > [!NOTE]
@@ -21,8 +19,6 @@ Dit template is het startpunt om BIO-compliant te worden in een Microsoft 365 cl
 
 Deze template is gebaseerd op BIO Thema-uitwerking Clouddiensten versie 2.2 en CIS control framework.
 Meer informatie hierover vind je op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorieen-en-workshops/producten?product=Clouddiensten).
-
->AFBEELDING INVOEGEN 
 
 ## Mappen van BIO Controls op maatregelen in Microsoft 365
 De BIO beschrijft een aantal controls en maatregelen welke overheidsinstanties kunnen gebruiken om risico's met betrekking tot informatie beveiliging te mitigeren. Deze maatregelen zijn grotendeels gebaseerd op industriestandaarden, zoals ISO IEC 27002. Meer informatie kan gevonden worden op de website van [BIO Overheid](https://www.bio-overheid.nl/category/producten?product=Handreiking_BIO2_0_opmaat).
