@@ -54,7 +54,7 @@ Om deze oplossing te gebruiken, zijn een aantal zaken vereist:
 - Tools machine waar de oplossing op uitgevoerd kan worden
   - Deze moet een versie van Windows draaien die nog in support is. Dit kan een client of server versie van Windows zijn.
 - Service principal met de juiste rechten.
-  - Deze wordt aangemaakt tijdens stap X
+  - Deze wordt aangemaakt tijdens de stap 'Aanmaken van de service principal'
 - Administratieve credentials met 'Global Administrator' rechten
   - Dit account is nodig om de benodigde service principal aan te maken.
 - Download de benodigde scripts uit deze repository
@@ -79,7 +79,10 @@ Installeer alle benodigde componenten op de Tools machine door de volgende stapp
     - Controleer of het mogelijk is c.q. is toegestaan om deze setting aan te passen naar `RemoteSigned`
     - Zo ja, voer het volgende commando uit `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
     - Zo nee, zorg ervoor dat of de scripts een digitale handtekening krijgen met een vertrouwd certificaat (bij `AllSigned`) of dat scripts (tijdelijk) toegestaan worden (bij `Restricted`)
-6. Voer het volgende commando uit: `.\PrepEnvironment.ps1`
+6. Indien je gebruik maakt van een Windows client OS (Windows 10 of Windows 11): 
+    - Voer het volgende commando uit `winrm quickconfig`.
+    - Dit commando configureert Windows Remoting op de machine, wat nodig is tijdens de analyse.
+7. Voer het volgende commando uit: `.\PrepEnvironment.ps1`
 
 #### <ins>Aanmaken van de service principal</ins>
 
