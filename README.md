@@ -74,7 +74,7 @@ Installeer alle benodigde componenten op de Tools machine door de volgende stapp
 1. Login op de Tools machine
 2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
 3. Voer het volgende commando uit: `Get-ChildItem | Unblock-File`
-4. Voer het volgende commando uit: `Get-ExectionPolicy`
+4. Voer het volgende commando uit: `Get-ExecutionPolicy`
 5. Als het antwoord van het vorige commando `Restricted` of `AllSigned` is:
     - Controleer of het mogelijk is c.q. is toegestaan om deze setting aan te passen naar `RemoteSigned`
     - Zo ja, voer het volgende commando uit `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
