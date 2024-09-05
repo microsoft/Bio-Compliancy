@@ -72,9 +72,15 @@ De oplossing maakt gebruik van een componenten welke eerste geïnstalleerd moete
 
 Installeer alle benodigde componenten op de Tools machine door de volgende stappen uit te voeren:
 1. Login op de Tools machine
-2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+2. Open een elevated 'Windows PowerShell v5.1' window
+    - Klik op de 'Start' knop
+    - Type 'Powershell'
+    - Klik met de rechter muisknop op het 'Windows PowerShell' icoon en  klik op 'Run as Adminstrator'
+    - Bevestig dat je het process met Administrator rechten wil draaien door op 'Yes' te klikken
+    - Zodra het window geopend is, controleer of er "Administrator: " voor in de titelbalk staat
+3. Browse naar de folder waar de scripts naar toe gekopieerd zijn
 3. Voer het volgende commando uit: `Get-ChildItem | Unblock-File`
-4. Voer het volgende commando uit: `Get-ExectionPolicy`
+4. Voer het volgende commando uit: `Get-ExecutionPolicy`
 5. Als het antwoord van het vorige commando `Restricted` of `AllSigned` is:
     - Controleer of het mogelijk is c.q. is toegestaan om deze setting aan te passen naar `RemoteSigned`
     - Zo ja, voer het volgende commando uit `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
@@ -90,7 +96,7 @@ Om in te kunnen loggen in Microsoft 365, maakt deze oplossing gebruik van een se
 
 Om deze aan te maken, de juiste rechten te geven en een authenticatie certificaat te configureren, voer de volgende stappen uit:
 1. Login op de Tools machine
-2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+2. Open een elevated 'Windows PowerShell v5.1' window (zie boven voor instructies) en browse naar de folder waar de scripts naar toe gekopieerd zijn
 3. Voer het volgende commando uit: `.\PrepBIOServicePrincipal.ps1 -Credential (Get-Credential)`
     - Wanneer het gebruikte account Multi-Factor Authentication gebruikt, kan het zijn dat je nogmaals een password en vervolgens MFA prompt krijgt.
 
@@ -111,13 +117,13 @@ Voor het uitvoeren van de assessment, wordt er eerst een export van de huidige c
 #### <ins>Maken van de export</ins>
 
 1. Login op de Tools machine
-2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+2. Open een elevated 'Windows PowerShell v5.1' window (zie boven voor instructies) en browse naar de folder waar de scripts naar toe gekopieerd zijn
 3. Voer het volgende commando uit: `.\RunBIOExport.ps1 -ApplicationId <Application Id> -TenantId <tenantname>.onmicrosoft.com -CertificateThumbprint <Certificate Thumbprint>`
     - Vul de juiste gegevens in, zoals deze tijdens het maken van de service principal zijn genoteerd.
 
 #### <ins>Analyseren van de export</ins>
 1. Login op de Tools machine
-2. Open een elevated 'Windows PowerShell v5.1' window en browse naar de folder waar de scripts naar toe gekopieerd zijn
+2. Open een elevated 'Windows PowerShell v5.1' window (zie boven voor instructies) en browse naar de folder waar de scripts naar toe gekopieerd zijn
 3. Voer het volgende commando uit: `.\RunBIOAssessment.ps1`
 4. Wanneer er geen fouten zijn opgetreden, zal er een Output folder zijn aangemaakt met daarin een folder met de datum van vandaag. Hierin zouden diverse files moeten zijn aangemaakt:
     1. Één CSV file
@@ -139,6 +145,15 @@ Voor het uitvoeren van de assessment, wordt er eerst een export van de huidige c
 Door een categorie te selecteren en op de knop **Bekijk details** te klikken (hou tijdens de klik de Ctrl toets ingedrukt), ga je naar een detail overzicht van de betreffende categorie.
 
 Om de analyze resultaten opnieuw in te lezen, klik op de **Home** ribbon op de **Refresh** knop.
+
+## Achtergrond informatie
+
+Tijdens de analyze worden alle geëxporteerde componenten vergeleken met de BIO. Dit betekent dat het mogelijk is dat er false positives worden gerapporteerd. Wanneer  een set aan instellingen b.v. over meerdere policies verdeeld zijn en gebruikers  een combinatie van deze policies toegewezen krijgen, is het eindresultaat vanuit gebruikersperspectief compliant maar het resultaat van de individuele policies niet. Dit laatste wordt weergegeven in de rapportage.
+ 
+### Voorbeeld
+Policy1 zet Setting1, Policy2 zet Setting2 en Policy3 zet Setting3. In het toepassen van de policies krijgen alle users Policy1, maar de helft van de users Policy2 en de andere helft Policy3.
+ 
+De BIO beschrijft dat Setting1 altijd ingesteld moet worden. Dit is door het toepassen van de combinatie van policies het geval, echter puur kijkend naar de policies, hebben Policy2 en Policy3 natuurlijk niet Setting1 ingesteld en worden die dus aangegeven als non-compliant.
 
 ## Disclaimer
 
