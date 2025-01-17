@@ -1,4 +1,6 @@
-﻿<#
+﻿#Requires -RunAsAdministrator
+
+<#
 .SYNOPSIS
     This script installs all required components, so the environment is ready for the follow-up scripts.
 
@@ -42,61 +44,89 @@ begin
         exit -1
     }
 
-    Write-LogEntry -Object "Starting Preparation script"
+    $minimumM365DSCVersion = [System.Version]'1.24.1030.1'
+
+    Write-LogEntry -Message "Starting Preparation script"
+    Show-CurrentVersion
     Set-Location -Path $workingDirectory
 }
 
 process
 {
-    Write-LogEntry -Object "Checking presence of Microsoft365DSC"
+    Write-LogEntry -Message "Checking presence of Microsoft365DSC"
     $m365dscModule = Get-Module Microsoft365DSC -ListAvailable
     if ($null -eq $m365dscModule)
     {
-        Write-LogEntry -Object "Installing Microsoft365DSC"
+        Write-LogEntry -Message "Installing Microsoft365DSC"
         Install-Module Microsoft365DSC
     }
     else
     {
-        Write-LogEntry -Object "Microsoft365DSC already installed: $($m365dscModule.Version)"
+        Write-LogEntry -Message "Microsoft365DSC already installed: $($m365dscModule.Version)"
 
         $newestModule = Find-Module Microsoft365DSC
-        if ($newestModule.Version -gt $m365dscModule.Version)
+        if ($m365dscModule.Version -ge $minimumM365DSCVersion)
         {
-            if ((Assert-IsNonInteractiveShell) -eq $false)
+            if ($newestModule.Version -gt $m365dscModule.Version)
             {
-                $top = new-Object System.Windows.Forms.Form -property @{Topmost=$true}
-                $result = [System.Windows.Forms.MessageBox]::Show($top,"Do you want to upgrade to the most recent version of Microsoft365DSC ($($newestModule.Version))","Do you want to upgrade?",'YesNo','Question')
-                if ($result -eq 'Yes')
+                if ((Assert-IsNonInteractiveShell) -eq $false)
                 {
-                    Write-LogEntry -Object "Upgrading Microsoft365DSC to v$($newestModule.Version)"
-                    Remove-Item -Path (Split-Path -Path $m365dscModule.Path -Parent) -Recurse -Force
-                    Install-Module Microsoft365DSC
-                }
-                else
-                {
-                    Write-LogEntry -Object "Keep using current version of Microsoft365DSC."
+                    $top = new-Object System.Windows.Forms.Form -property @{Topmost=$true}
+                    $result = [System.Windows.Forms.MessageBox]::Show($top,"Do you want to upgrade to the most recent version of Microsoft365DSC ($($newestModule.Version))","Do you want to upgrade?",'YesNo','Question')
+                    if ($result -eq 'Yes')
+                    {
+                        Write-LogEntry -Message "Upgrading Microsoft365DSC to v$($newestModule.Version)"
+                        Remove-Item -Path (Split-Path -Path $m365dscModule.Path -Parent) -Recurse -Force
+                        Install-Module Microsoft365DSC
+                    }
+                    else
+                    {
+                        Write-LogEntry -Message "Keep using current version of Microsoft365DSC."
+                    }
                 }
             }
+        }
+        else
+        {
+            Write-LogEntry -Message "Upgrade of Microsoft365DSC required: Installing v$($newestModule.Version)"
+            Write-LogEntry -Message "  Minimum version: v$($minimumM365DSCVersion)"
+            Write-LogEntry -Message "  Installed version: v$($m365dscModule.Version)"
+            Write-LogEntry -Message "Installing v$($newestModule.Version)"
+            Remove-Item -Path (Split-Path -Path $m365dscModule.Path -Parent) -Recurse -Force
+            Install-Module Microsoft365DSC
         }
     }
 
     $m365dscModule = Get-Module Microsoft365DSC -ListAvailable
     if ($null -eq $m365dscModule)
     {
-        Write-LogEntry -Object "Microsoft365DSC not installed successfully. Exiting!" -Failure
+        Write-LogEntry -Message "Microsoft365DSC not installed successfully. Exiting!" -Type Error
         return
     }
 
-    Write-LogEntry -Object "Updating Microsoft365DSC dependencies"
+    Write-LogEntry -Message "Updating Microsoft365DSC dependencies"
     Update-M365DSCDependencies
 
-    Write-LogEntry -Object "Removing duplicate versions of the dependencies (to prevent conflicts)"
+    Write-LogEntry -Message "Removing duplicate versions of the dependencies (to prevent conflicts)"
     Uninstall-M365DSCOutdatedDependencies
+
+    $result = Test-WSMan -ErrorAction SilentlyContinue
+    if ($null -ne $result)
+    {
+        Write-LogEntry -Message 'Windows Remoting is configured correctly. Continuing.'
+
+    }
+    else
+    {
+        Write-LogEntry -Message 'Windows Remoting is NOT configured correctly. Configuring now!'
+        Enable-PSRemoting -SkipNetworkProfileCheck -Force
+        Write-LogEntry -Message 'Windows Remoting has been configured!'
+    }
 }
 
 end
 {
     $ProgressPreference = $origProgressPreference
 
-    Write-LogEntry -Object "Completed Preparation script"
+    Write-LogEntry -Message "Completed Preparation script"
 }
