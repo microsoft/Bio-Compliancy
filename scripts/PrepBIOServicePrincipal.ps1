@@ -1,4 +1,6 @@
-﻿<#
+﻿#Requires -RunAsAdministrator
+
+<#
 .SYNOPSIS
     This script creates and configures a Service Principal in Azure Active Directory/Entra ID.
 
@@ -66,7 +68,8 @@ begin
     $bioSettingsFileName = 'M365ReportBIO.JSON'
     $fullBIOPath = Join-Path -Path $workingDirectory -ChildPath $bioSettingsFileName
 
-    Write-LogEntry -Object "Starting Service Principal Creation script"
+    Write-LogEntry -Message "Starting Service Principal Creation script"
+    Show-CurrentVersion
     Set-Location -Path $workingDirectory
 }
 
@@ -76,7 +79,7 @@ process
     {
         if ((Test-Path -Path $CertificatePath) -eq $false)
         {
-            Write-LogEntry -Object "Cannot find file '$CertificatePath' specified in the parameter CertificatePath. Please make sure the file exists!" -Failure
+            Write-LogEntry -Message "Cannot find file '$CertificatePath' specified in the parameter CertificatePath. Please make sure the file exists!" -Type Error
             return
         }
 
@@ -87,14 +90,14 @@ process
         }
         catch
         {
-            Write-LogEntry -Object "Error reading '$CertificatePath'. Please make sure the file is a valid CER file!" -Failure
+            Write-LogEntry -Message "Error reading '$CertificatePath'. Please make sure the file is a valid CER file!" -Type Error
             return
         }
     }
 
     Connect-MgGraph -Scopes 'Application.ReadWrite.All','Organization.Read.All','Directory.Read.All','RoleManagement.ReadWrite.Directory' -NoWelcome
 
-    Write-LogEntry -Object "Checking for presence of AAD / Entra ID Premium P2 license"
+    Write-LogEntry -Message "Checking for presence of AAD / Entra ID Premium P2 license"
     $aadPremiumP2Found = $false
     $skus = Get-MgBetaSubscribedSku
     foreach ($sku in $skus)
@@ -110,17 +113,17 @@ process
 
     if ((Test-Path -Path $fullBIOPath) -eq $false)
     {
-        Write-LogEntry -Object "Cannot find file '$fullBIOPath'. Please make sure that file exists!" -Failure
+        Write-LogEntry -Message "Cannot find file '$fullBIOPath'. Please make sure that file exists!" -Type Error
         return
     }
 
     $bioJson = Get-Content -Raw -Path $fullBIOPath | ConvertFrom-Json
     $Components = $bioJson.resourceName | Sort-Object | Get-Unique
 
-    Write-LogEntry -Object 'Retrieving required permissions'
+    Write-LogEntry -Message 'Retrieving required permissions'
     $permissions = Get-M365DSCCompiledPermissionList -ResourceNameList $Components -PermissionType 'Application' -AccessType 'Read'
 
-    Write-LogEntry -Object 'Checking additionally required SharePoint permissions'
+    Write-LogEntry -Message 'Checking additionally required SharePoint permissions'
     $spPerms = @("Sites.FullControl.All","AllSites.FullControl","User.ReadWrite.All")
     foreach ($spPerm in $spPerms)
     {
@@ -133,7 +136,7 @@ process
         }
     }
 
-    Write-LogEntry -Object 'Checking additionally required Graph permissions'
+    Write-LogEntry -Message 'Checking additionally required Graph permissions'
     $graphPerms = @("Group.ReadWrite.All","User.ReadWrite.All")
     foreach ($graphPerm in $graphPerms)
     {
@@ -146,7 +149,7 @@ process
         }
     }
 
-    Write-LogEntry -Object "All required permissions: $($permissions.PermissionName -join " / " )" -Verbose
+    Write-LogEntry -Message "All required permissions: $($permissions.PermissionName -join " / " )" -Type Verbose
 
     $azureADApp = Get-MgApplication -Filter "DisplayName eq '$($ServicePrincipalName)'"
 
@@ -161,14 +164,14 @@ process
 
     if ($null -eq $azureADApp)
     {
-        Write-LogEntry -Object "Service Principal '$ServicePrincipalName' does NOT exist. Creating service principal."
+        Write-LogEntry -Message "Service Principal '$ServicePrincipalName' does NOT exist. Creating service principal."
         if ($PSBoundParameters.ContainsKey('CertificatePath') -eq $false)
         {
             $params.CreateSelfSignedCertificate = $true
             $certPath = Join-Path -Path $workingDirectory -ChildPath ('{0}.cer' -f $ServicePrincipalName)
             if ((Test-Path -Path $certPath) -eq $true)
             {
-                Write-LogEntry -Object "Generated CertificatePath '$certPath' already exists. Please delete the file or specify a custom CertificatePath." -Failure
+                Write-LogEntry -Message "Generated CertificatePath '$certPath' already exists. Please delete the file or specify a custom CertificatePath." -Type Error
                 return
             }
             $params.CertificatePath = $certPath
@@ -176,13 +179,13 @@ process
     }
     else
     {
-        Write-LogEntry -Object "Service Principal '$ServicePrincipalName' exists. Updating service principal."
+        Write-LogEntry -Message "Service Principal '$ServicePrincipalName' exists. Updating service principal."
         if ($PSBoundParameters.ContainsKey('CertificatePath') -eq $false)
         {
             $certPath = Join-Path -Path $workingDirectory -ChildPath ('{0}.cer' -f $ServicePrincipalName)
             if ((Test-Path -Path $certPath) -eq $false)
             {
-                Write-LogEntry -Object "Generated CertificatePath '$certPath' does NOT exists. Please make sure the file exists or specify a custom CertificatePath." -Failure
+                Write-LogEntry -Message "Generated CertificatePath '$certPath' does NOT exists. Please make sure the file exists or specify a custom CertificatePath." -Type Error
                 return
             }
             $params.CertificatePath = $certPath
@@ -191,7 +194,7 @@ process
         {
             if ((Test-Path -Path $CertificatePath) -eq $false)
             {
-                Write-LogEntry -Object "Specified CertificatePath '$CertificatePath' does NOT exists. Please make sure the file exists." -Failure
+                Write-LogEntry -Message "Specified CertificatePath '$CertificatePath' does NOT exists. Please make sure the file exists." -Type Error
                 return
             }
         }
@@ -201,14 +204,14 @@ process
 
     # Refresh app details
     $found = $false
-    Write-LogEntry -Object "Retrieving app details"
+    Write-LogEntry -Message "Retrieving app details"
     do
     {
         $app = Get-MgServicePrincipal -Filter "DisplayName eq '$($ServicePrincipalName)'"
 
         if ($null -eq $app)
         {
-            Write-LogEntry -Object "App not yet found, waiting for 5 seconds"
+            Write-LogEntry -Message "App not yet found, waiting for 5 seconds"
             Start-Sleep -Seconds 5
         }
         else
@@ -217,7 +220,7 @@ process
         }
     } until ($found -eq $true)
 
-    Write-LogEntry -Object "Updating 'Allow Public Client Flows' setting (IsFallbackPublicClient)"
+    Write-LogEntry -Message "Updating 'Allow Public Client Flows' setting (IsFallbackPublicClient)"
     $azureADApp = Get-MgApplication -Filter "DisplayName eq '$($ServicePrincipalName)'"
     Update-MgApplication -ApplicationId $azureADApp.Id -IsFallbackPublicClient
 
@@ -239,23 +242,23 @@ process
     $domain = (Get-MgBetaOrganization).VerifiedDomains | Where-Object { $_.IsInitial -eq $true }
     $domainName = $domain.Name
 
-    Write-LogEntry -Object ' '
-    Write-LogEntry -Object 'Details of Service Principal:'
-    Write-LogEntry -Object "ApplicationId        : $applicationId"
-    Write-LogEntry -Object "TenantId             : $tenantid"
-    Write-LogEntry -Object "TenantName           : $domainName"
-    Write-LogEntry -Object "CertificateThumbprint: $certThumbprint"
-    Write-LogEntry -Object "ApplicationId        : $applicationId"
-    Write-LogEntry -Object 'NOTE: Make sure you copy these details for the next steps!'
-    Write-LogEntry -Object ' '
+    Write-LogEntry -Message ' '
+    Write-LogEntry -Message 'Details of Service Principal:'
+    Write-LogEntry -Message "ApplicationId        : $applicationId"
+    Write-LogEntry -Message "TenantId             : $tenantid"
+    Write-LogEntry -Message "TenantName           : $domainName"
+    Write-LogEntry -Message "CertificateThumbprint: $certThumbprint"
+    Write-LogEntry -Message "ApplicationId        : $applicationId"
+    Write-LogEntry -Message 'NOTE: Make sure you copy these details for the next steps!'
+    Write-LogEntry -Message ' '
 
     if ($aadPremiumP2Found -eq $true)
     {
-        Write-LogEntry -Object "AAD Premium P2 detected, using PIM to assign service principal to role"
+        Write-LogEntry -Message "AAD Premium P2 detected, using PIM to assign service principal to role"
     }
     else
     {
-        Write-LogEntry -Object "AAD Premium P2 NOT detected, using direct assignments of service principal to role"
+        Write-LogEntry -Message "AAD Premium P2 NOT detected, using direct assignments of service principal to role"
     }
 
     $roles = @('Exchange Administrator','Compliance Administrator')
@@ -268,11 +271,11 @@ process
         $roleAssignments = Get-MgBetaRoleManagementDirectoryRoleAssignment -Filter "roleDefinitionId eq '$($roleDefinition.Id)' and principalId eq '$($app.Id)'"
         if ($null -ne $roleAssignments)
         {
-            Write-LogEntry -Object "Service principal is already assigned to role $role."
+            Write-LogEntry -Message "Service principal is already assigned to role $role."
         }
         else
         {
-            Write-LogEntry -Object "Service principal is NOT assigned to role $role. Adding to role."
+            Write-LogEntry -Message "Service principal is NOT assigned to role $role. Adding to role."
             $null = New-MgBetaRoleManagementDirectoryRoleAssignment -PrincipalId $app.Id -RoleDefinitionId $roleDefinition.Id -DirectoryScopeId "/"
         }
     }
@@ -282,5 +285,5 @@ end
 {
     $ProgressPreference = $currProgressPreference
 
-    Write-LogEntry -Object "Completed Service Principal Creation script"
+    Write-LogEntry -Message "Completed Service Principal Creation script"
 }
