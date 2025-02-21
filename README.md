@@ -38,6 +38,10 @@ Naast de CIS Benchmark, zijn de maatregelen om de BIO 2022 controls af te dekken
 Beperkingen:
 - Op dit moment dekt de blueprint de core services in Microsoft 365 af, inclusief Entra ID (Azure AD), Exchange Online, SharePoint Online, OneDrive for Business, Teams, Purview and Defender for Office 365. Ondersteuning voor Intune wordt aan gewerkt.
 
+### Gedetailleerd mapping overzicht
+
+Een volledig overzicht van de verschillende mappings en controls is in [dit bestand](./BIO_ISO_CIS%20Mapping.xlsx) te vinden. Hierin zijn alle BIO, ISO27002, CIS SafeGuard en CIS Benchmark controls uitgewerkt, inclusief hoe deze op elkaar gemapt zijn.
+
 ## Bijdragen
 
 Dit project verwelkomt bijdragen en suggesties. Voor de meeste bijdragen moet je akkoord gaan met een Licentieovereenkomst voor Donateurs (CLA) waarin wordt verklaard dat je het recht hebt om ons het recht te geven om je bijdrage te gebruiken en dat je dat ook daadwerkelijk doet. Ga voor meer informatie naar [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com).
