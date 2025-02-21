@@ -41,6 +41,21 @@ begin
     $ProgressPreference = 'SilentlyContinue'
 
     $workingDirectory = $PSScriptRoot
+    Set-Location -Path $workingDirectory
+
+    $logPath = Join-Path -Path $workingDirectory -ChildPath "Logs"
+    if ((Test-Path -Path $logPath) -eq $false)
+    {
+        $null = New-Item -Name "Logs" -ItemType Directory
+    }
+
+    $timestamp = Get-Date -F "yyyyMMdd_HHmmss"
+    $scriptName = $MyInvocation.MyCommand.Name
+    $scriptName = ($scriptName -split "\.")[0]
+    $transcriptLogName = "{0}-{1}.log" -f $scriptName, $timestamp
+    $transcriptLogFullName = Join-Path -Path $logPath -ChildPath $transcriptLogName
+    Start-Transcript -Path $transcriptLogFullName
+
     try
     {
         Import-Module -Name (Join-Path -Path $workingDirectory -ChildPath 'SupportFunctions.psm1') -ErrorAction Stop
@@ -57,7 +72,6 @@ begin
 
     Write-LogEntry -Message 'Starting BIO Comparison script'
     Show-CurrentVersion
-    Set-Location -Path $workingDirectory
 }
 
 process
@@ -467,4 +481,5 @@ end
     $ProgressPreference = $currProgressPreference
 
     Write-LogEntry -Message 'Completed BIO Comparison script'
+    Stop-Transcript
 }

@@ -3,7 +3,7 @@ Write-LogEntry -Message "Executing $($MyInvocation.MyCommand.Name)"
 $null = New-M365DSCConnection -Workload 'MicrosoftGraph' `
     -InboundParameters @{
         ApplicationId = $ApplicationId
-        TenantId = $TenantName
+        TenantId = $TenantId
         CertificateThumbprint = $CertificateThumbprint
     }
 

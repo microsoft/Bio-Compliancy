@@ -15,8 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added check for minimum Microsoft365DSC version to be used.
 - Added versioning to the solution. The used version is now shown on the
   screen when the scripts are executed.
-- Increased CIS Benchmark coverage, adding all missing controls and documenting
-  still missing controls.
+- Increased CIS Benchmark coverage, adding checks for all missing controls.
+- Added documentation of CIS Benchmark coverage, added to this repository.
+- Added creation of output transcript to a Logs folder.
+
+### Changed
+
 - Upgraded to CIS Benchmark for Microsoft 365 v4.0.0.
 
 ## [2.2.0-R01] - 2024-06-25

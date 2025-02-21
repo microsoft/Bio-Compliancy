@@ -2,10 +2,10 @@ Write-LogEntry -Message "Executing $($MyInvocation.MyCommand.Name)"
 
 $null = New-M365DSCConnection -Workload 'MicrosoftGraph' `
     -InboundParameters @{
-    ApplicationId         = $ApplicationId
-    TenantId              = $TenantName
-    CertificateThumbprint = $CertificateThumbprint
-}
+        ApplicationId         = $ApplicationId
+        TenantId              = $TenantId
+        CertificateThumbprint = $CertificateThumbprint
+    }
 
 $DirectoryRoles = Get-MgBetaDirectoryRole
 
@@ -20,7 +20,7 @@ $RoleMembers = $PrivilegedRoles | ForEach-Object { Get-MgBetaDirectoryRoleMember
 
 # Retrieve details about the members in these roles
 $PrivilegedUsers = $RoleMembers | ForEach-Object {
-    Get-MgUser -UserId $_.Id -Property UserPrincipalName, DisplayName, Id
+    Get-MgUser -UserId $_.Id -Property UserPrincipalName, DisplayName, Id -ErrorAction SilentlyContinue
 }
 
 $usersWithLicense = [System.Collections.Generic.List[Object]]::new()

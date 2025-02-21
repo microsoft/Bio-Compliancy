@@ -3,7 +3,7 @@ Write-LogEntry -Message "Executing $($MyInvocation.MyCommand.Name)"
 $null = New-M365DSCConnection -Workload 'ExchangeOnline' `
     -InboundParameters @{
         ApplicationId = $ApplicationId
-        TenantId = $TenantName
+        TenantId = $TenantId
         CertificateThumbprint = $CertificateThumbprint
     }
 

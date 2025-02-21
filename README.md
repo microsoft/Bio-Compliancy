@@ -53,6 +53,8 @@ Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.
 Om deze oplossing te gebruiken, zijn een aantal zaken vereist:
 - Tools machine waar de oplossing op uitgevoerd kan worden
   - Deze moet een versie van Windows draaien die nog in support is. Dit kan een client of server versie van Windows zijn.
+  - DNS toegang om Internet domeinnamen te valideren.
+    - Op het moment dat dit niet mogelijk is, zal de rapportage false positives weergeven. Deze moeten dan handmatig gecontroleerd worden.
 - Service principal met de juiste rechten.
   - Deze wordt aangemaakt tijdens de stap 'Aanmaken van de service principal'
 - Administratieve credentials met 'Global Administrator' rechten

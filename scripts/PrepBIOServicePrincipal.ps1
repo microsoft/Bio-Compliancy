@@ -54,6 +54,21 @@ begin
     $ProgressPreference = 'SilentlyContinue'
 
     $workingDirectory = $PSScriptRoot
+    Set-Location -Path $workingDirectory
+
+    $logPath = Join-Path -Path $workingDirectory -ChildPath "Logs"
+    if ((Test-Path -Path $logPath) -eq $false)
+    {
+        $null = New-Item -Name "Logs" -ItemType Directory
+    }
+
+    $timestamp = Get-Date -F "yyyyMMdd_HHmmss"
+    $scriptName = $MyInvocation.MyCommand.Name
+    $scriptName = ($scriptName -split "\.")[0]
+    $transcriptLogName = "{0}-{1}.log" -f $scriptName, $timestamp
+    $transcriptLogFullName = Join-Path -Path $logPath -ChildPath $transcriptLogName
+    Start-Transcript -Path $transcriptLogFullName
+
     try
     {
         Import-Module -Name (Join-Path -Path $workingDirectory -ChildPath 'SupportFunctions.psm1') -ErrorAction Stop
@@ -70,7 +85,6 @@ begin
 
     Write-LogEntry -Message "Starting Service Principal Creation script"
     Show-CurrentVersion
-    Set-Location -Path $workingDirectory
 }
 
 process
@@ -137,10 +151,10 @@ process
     }
 
     Write-LogEntry -Message 'Checking additionally required Graph permissions'
-    $graphPerms = @("Group.ReadWrite.All","User.ReadWrite.All")
+    $graphPerms = @("Group.ReadWrite.All","User.ReadWrite.All","AuditLog.Read.All")
     foreach ($graphPerm in $graphPerms)
     {
-        if ($null -eq ($permissions | Where-Object { $_.API -eq 'SharePoint' -and $_.PermissionName -eq $graphPerm}))
+        if ($null -eq ($permissions | Where-Object { $_.API -eq 'Graph' -and $_.PermissionName -eq $graphPerm}))
         {
             $permissions += @{
                 API = 'Graph'
@@ -286,4 +300,5 @@ end
     $ProgressPreference = $currProgressPreference
 
     Write-LogEntry -Message "Completed Service Principal Creation script"
+    Stop-Transcript
 }

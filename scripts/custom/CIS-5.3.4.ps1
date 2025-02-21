@@ -2,10 +2,10 @@ Write-LogEntry -Message "Executing $($MyInvocation.MyCommand.Name)"
 
 $null = New-M365DSCConnection -Workload 'MicrosoftGraph' `
     -InboundParameters @{
-    ApplicationId         = $ApplicationId
-    TenantId              = $TenantName
-    CertificateThumbprint = $CertificateThumbprint
-}
+        ApplicationId         = $ApplicationId
+        TenantId              = $TenantId
+        CertificateThumbprint = $CertificateThumbprint
+    }
 
 $gaRole = Get-MgBetaRoleManagementDirectoryRoleDefinition | Where-Object { $_.DisplayName -in 'Global Administrator' }
 $Filter = "scopeId eq '/' and scopeType eq 'DirectoryRole' and RoleDefinitionId eq '$($gaRole.Id)'"

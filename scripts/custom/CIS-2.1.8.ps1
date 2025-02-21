@@ -3,7 +3,7 @@ Write-LogEntry -Message "Executing $($MyInvocation.MyCommand.Name)"
 $null = New-M365DSCConnection -Workload 'MicrosoftGraph' `
     -InboundParameters @{
         ApplicationId = $ApplicationId
-        TenantId = $TenantName
+        TenantId = $TenantId
         CertificateThumbprint = $CertificateThumbprint
     }
 
@@ -11,7 +11,7 @@ $domains = Get-MgBetaDomain
 [Array]$incorrectSPF = @()
 $incorrectSPF = foreach ($domain in $domains)
 {
-    $record = Resolve-DnsName -Name $domain.Id -Type TXT | Where-Object -FilterScript { $_.Strings -like 'v=spf1*' }
+    $record = Resolve-DnsName -Name $domain.Id -Type TXT -ErrorAction SilentlyContinue | Where-Object -FilterScript { $_.Strings -like 'v=spf1*' }
     if ($null -eq $record)
     {
         "$($domain.Id) -> No SPF"

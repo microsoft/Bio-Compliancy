@@ -84,6 +84,21 @@ begin
     $env:PNPPOWERSHELL_UPDATECHECK="false"
 
     $workingDirectory = $PSScriptRoot
+    Set-Location -Path $workingDirectory
+
+    $logPath = Join-Path -Path $workingDirectory -ChildPath "Logs"
+    if ((Test-Path -Path $logPath) -eq $false)
+    {
+        $null = New-Item -Name "Logs" -ItemType Directory
+    }
+
+    $timestamp = Get-Date -F "yyyyMMdd_HHmmss"
+    $scriptName = $MyInvocation.MyCommand.Name
+    $scriptName = ($scriptName -split "\.")[0]
+    $transcriptLogName = "{0}-{1}.log" -f $scriptName, $timestamp
+    $transcriptLogFullName = Join-Path -Path $logPath -ChildPath $transcriptLogName
+    Start-Transcript -Path $transcriptLogFullName
+
     try
     {
         Import-Module -Name (Join-Path -Path $workingDirectory -ChildPath 'SupportFunctions.psm1') -ErrorAction Stop
@@ -96,7 +111,6 @@ begin
 
     Write-LogEntry -Message "Starting BIO Export script"
     Show-CurrentVersion
-    Set-Location -Path $workingDirectory
 }
 
 process
@@ -121,7 +135,7 @@ process
 
     $timestamp = Get-Date -f 'yyyyMMdd'
     $outputPath = Join-Path -Path $workingDirectory -ChildPath "Output\$timestamp"
-#<#
+
     if ((Test-Path -Path $outputPath) -eq $false)
     {
         $null = New-Item -Name "Output\$timestamp" -ItemType Directory
@@ -132,7 +146,7 @@ process
         Remove-Item -Path $outputPath -Force -Recurse
         $null = New-Item -Name "Output\$timestamp" -ItemType Directory
     }
-#>
+
     $customScriptsPath = Join-Path -Path $workingDirectory -ChildPath "custom"
     if ((Test-Path -Path $customScriptsPath) -eq $false)
     {
@@ -141,7 +155,6 @@ process
         return
     }
 
-#<#
     $fullBIOPath = Join-Path -Path $workingDirectory -ChildPath $BIOTemplateFileName
     if (Test-Path -Path $fullBIOPath)
     {
@@ -153,7 +166,6 @@ process
         Write-LogEntry -Message "Cannot find BIO Baseline file '$fullBIOPath'. Exiting script." -Type Error
         return
     }
-
 
     Write-LogEntry -Message "Granting permissions to Graph and PnP apps"
 
@@ -228,11 +240,6 @@ process
         Write-LogEntry -Message "Please check if all prequisites are met!" -Type Error
         return
     }
-#>
-
-### TEMP
-$fullReportPath = Join-Path -Path $outputPath -ChildPath $ExportFileName
-
 
     Write-LogEntry -Message "Running additional custom exports"
     $script:exportResults = Get-Content -Path $fullReportPath -Raw | ConvertFrom-Json
@@ -243,7 +250,7 @@ $fullReportPath = Join-Path -Path $outputPath -ChildPath $ExportFileName
     {
         . $script.FullName
     }
-    $script:exportResults | ConvertTo-Json -Depth 20 | Set-Content -Path $fullReportPath -Encoding utf8BOM
+    $script:exportResults | ConvertTo-Json -Depth 20 | Set-Content -Path $fullReportPath -Encoding UTF8
 }
 
 end
@@ -251,4 +258,5 @@ end
     $ProgressPreference = $origProgressPreference
 
     Write-LogEntry -Message "Completed BIO Export script"
+    Stop-Transcript
 }
