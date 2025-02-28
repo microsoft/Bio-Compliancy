@@ -276,7 +276,7 @@
     "Members": []
   },
   {
-    "ResourceName": "AADGroup",
+    "ResourceName": "AADCustomPublicGroup",
     "ResourceInstanceName": "CIS-1.2.1",
     "BIOControls": [
       "8.2.3",
@@ -285,9 +285,7 @@
       "9.4.1",
       "9.4.5"
     ],
-    "DisplayName": "CIS-1.2.1",
-    "Visibility": "Private",
-    "Ensure": "Present"
+    "Visibility": "Private"
   },
   {
     "ResourceName": "AADConditionalAccessPolicy",
@@ -402,7 +400,7 @@
     "DefaultUserRoleAllowedToCreateTenants": false
   },
   {
-    "ResourceName": "AADGroup",
+    "ResourceName": "AADCustomAllGuestsGroup",
     "ResourceInstanceName": "CIS-5.1.3.1",
     "BIOControls": [
       "8.1.3",
@@ -412,11 +410,7 @@
       "9.4.1",
       "9.4.5"
     ],
-    "MembershipRule": "(user.userType -eq \"Guest\")",
-    "GroupTypes": [
-      "DynamicMembership"
-    ],
-    "Ensure": "Present"
+    "Exists": true
   },
   {
     "ResourceName": "AADAuthorizationPolicy",
@@ -547,7 +541,7 @@
     ]
   },
   {
-    "ResourceName": "SPOSharingSettings",
+    "ResourceName": "SPOCustomSharingSettings",
     "ResourceInstanceName": "CIS-7.2.3",
     "BIOControls": [
       "8.1.3",
@@ -557,10 +551,10 @@
       "9.4.1",
       "9.4.5"
     ],
-    "SharingCapability": "ExternalUserSharingOnly"
+    "SharingCapability": "ExternalUserSharingOnly (New and existing guests) or more restrictive"
   },
   {
-    "ResourceName": "SPOSharingSettings",
+    "ResourceName": "SPOCustomODSharingSettings",
     "ResourceInstanceName": "CIS-7.2.4",
     "BIOControls": [
       "8.1.3",
@@ -570,7 +564,7 @@
       "9.4.1",
       "9.4.5"
     ],
-    "MySiteSharingCapability": "ExternalUserSharingOnly"
+    "SharingCapability": "ExternalUserSharingOnly (New and existing guests) or more restrictive"
   },
   {
     "ResourceName": "SPOSharingSettings",
@@ -1353,7 +1347,7 @@
       "9.1.1",
       "9.1.2"
     ],
-    "UsersNotMFACapable": []
+    "MFACapable": true
   },
   {
     "ResourceName": "AADCustomPIMAccessReviews",
@@ -1545,15 +1539,6 @@
     "IncludeUsers": [
       "All"
     ]
-  },
-  {
-    "ResourceName": "AADCustomUserMFACapable",
-    "ResourceInstanceName": "CIS-5.2.3.4",
-    "BIOControls": [
-      "9.1.1",
-      "9.1.2"
-    ],
-    "UsersNotMFACapable": []
   },
   {
     "ResourceName": "AADCustomWeakAuthenticationMethodsDisabled",

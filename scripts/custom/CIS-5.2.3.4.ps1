@@ -7,25 +7,31 @@ $null = New-M365DSCConnection -Workload 'MicrosoftGraph' `
         CertificateThumbprint = $CertificateThumbprint
     }
 
-$notMfaCapableUsers = Get-MgBetaReportAuthenticationMethodUserRegistrationDetail -Filter "IsMfaCapable eq false and UserType eq 'Member'"
+$notMfaCapableUsers = Get-MgBetaReportAuthenticationMethodUserRegistrationDetail -Filter "IsMfaCapable eq false and UserType eq 'Member'" -ErrorAction SilentlyContinue
 
-$reportedUsers = foreach ($user in $notMfaCapableUsers)
+if ($null -eq $notMfaCapableUsers)
 {
-    $isAdmin = if ($user.IsAdmin) { "Admin" } else { "User" }
-    $isMfaCapable = if ($user.IsMfaCapable) { "Not MFA Capable" } else { "Not MFA Capable" }
-    "{0} / {1} / {2}" -f $user.UserPrincipalName,$isMfaCapable,$isAdmin
+    $script:exportResults += [PSCustomObject]@{
+        ResourceName         = 'AADCustomUserMFACapable'
+        ResourceInstanceName = 'CIS-5.2.3.4'
+        Id                   = 'Users not MFA capable: No users'
+        MFACapable           = $true
+    }
 }
-
-if ($null -eq $reportedUsers)
+else
 {
-    $reportedUsers = @()
-}
+    foreach ($user in $notMfaCapableUsers)
+    {
+        $userType = if ($user.IsAdmin) { "Admin" } else { "User" }
 
-$script:exportResults += [PSCustomObject]@{
-    ResourceName         = 'AADCustomUserMFACapable'
-    ResourceInstanceName = 'CIS-5.2.3.4'
-    Id                   = 'Ensure all member users are MFA capable'
-    UsersNotMFACapable   = $reportedUsers
+        $script:exportResults += [PSCustomObject]@{
+            ResourceName         = 'AADCustomUserMFACapable'
+            ResourceInstanceName = 'CIS-5.2.3.4-{0}-{1}' -f $user.UserPrincipalName, $userType
+            Id                   = 'Users not MFA capable: {0}' -f $user.UserPrincipalName
+            MFACapable           = $false
+        }
+    }
 }
 
 Write-LogEntry -Message "Completed $($MyInvocation.MyCommand.Name)"
+
