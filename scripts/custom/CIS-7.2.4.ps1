@@ -26,6 +26,10 @@ if ($null -ne $mySite)
     if ($null -ne $mySiteTenantSite)
     {
         $sharingSetting = $mySiteTenantSite.SharingCapability.ToString()
+        if ($sharingSetting -in @('ExternalUserSharingOnly','ExistingExternalUserSharingOnly','Disabled'))
+        {
+            $sharingSetting = "ExternalUserSharingOnly (New and existing guests) or more restrictive"
+        }
     }
 }
 
