@@ -79,7 +79,6 @@ process
     # Create variables to store comparison results
     $comparisonResults = @()
     $bioControlsResults = @{}
-    $detailedBIOControlsResults = @()
 
     $timestamp = Get-Date -f 'yyyyMMdd'
     if ($PSBoundParameters.ContainsKey('OutputPath'))
@@ -97,16 +96,14 @@ process
     $currentSettingsFileName = 'M365Report.JSON'
     $currentSettingsFullPath = Join-Path -Path $outputFolder -ChildPath $currentSettingsFileName
 
-    $bioControlsDetailsCSV = 'BIOControlsDetails.csv'
-
     $resultComparisonFileName = 'Results_Comparison.json'
     $resultComparisonFullPath = Join-Path -Path $outputFolder -ChildPath $resultComparisonFileName
 
     $resultBIOControlsFileName = 'Results_BIOControls.json'
     $resultBIOControlsFullPath = Join-Path -Path $outputFolder -ChildPath $resultBIOControlsFileName
 
-    $resultRulesCSVFileName = 'Results_BIOControlsOverview.csv'
-    $resultRulesCSVFullPath = Join-Path -Path $outputFolder -ChildPath $resultRulesCSVFileName
+    $allBIOControlsDetailsJson = 'AllBIOControlDetails.json'
+    $allCISBenchmarkDetailsJson = 'AllCISBenchmarkDetails.json'
 
     $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
 
@@ -164,17 +161,6 @@ process
         return
     }
 
-    Write-LogEntry -Message "Read BIO Controls details: $bioControlsDetailsCSV"
-    if (Test-Path -Path ".\$bioControlsDetailsCSV")
-    {
-        $bioControlsDetails = Import-Csv -Path ".\$bioControlsDetailsCSV" -Delimiter ';' -Encoding UTF8
-    }
-    else
-    {
-        Write-LogEntry -Message "Cannot find current settings file '$bioControlsDetailsCSV'. Exiting script." -Type Error
-        return
-    }
-
     Write-LogEntry -Message 'Comparing current settings with BIO Baseline'
 
     $ProgressPreference = 'Continue'
@@ -189,6 +175,13 @@ process
 
         $bioResourceName = $bioObject.ResourceName
         $currentObjects = $currentJson | Where-Object { $_.ResourceName -eq $bioResourceName }
+
+        # Filter current objects on Identity when the BIO object has the identity parameter specified.
+        $identityProperty = $bioObject.PsObject.Properties | Where-Object { $_.Name -eq 'Identity' }
+        if ($null -ne $identityProperty)
+        {
+            $currentObjects = $currentObjects | Where-Object { $_.Identity -eq $bioObject.Identity }
+        }
 
         if ($currentObjects)
         {
@@ -293,40 +286,6 @@ process
                             }
                         }
                         $bioControlsResults[$control] = $bioControlsResult
-
-                        $controlDetails = $bioControlsDetails | Where-Object -FilterScript { $_.ControlNr -eq $control }
-
-                        $detailedBIOControlsResults += [PSCustomObject]@{
-                            ControlNr            = $control
-                            Category             = $controlDetails.Category
-                            BBN                  = $controlDetails.BBN
-                            Title                = $controlDetails.Title
-                            Description          = $controlDetails.Description
-                            ResourceName         = $currentObject.ResourceName
-                            ResourceInstanceName = $currentObject.ResourceInstanceName
-                            CISNumber            = $bioObject.ResourceInstanceName
-                            MeasuresCount        = 1
-                            Score                = $measureCount
-                            Timestamp            = $timestamp
-                            RequiredMeasure      = $controlDetails.'Government Measure'
-                        }
-                    }
-                }
-                else
-                {
-                    $detailedBIOControlsResults += [PSCustomObject]@{
-                        ControlNr            = '0'
-                        Category             = 'General Recommended Practice'
-                        BBN                  = '0'
-                        Title                = 'General Recommended Practice'
-                        Description          = 'General Recommended Practice'
-                        ResourceName         = $currentObject.ResourceName
-                        ResourceInstanceName = $currentObject.ResourceInstanceName
-                        CISNumber            = $bioObject.ResourceInstanceName
-                        MeasuresCount        = 1
-                        Score                = $measureCount
-                        Timestamp            = $timestamp
-                        RequiredMeasure      = 'N/A'
                     }
                 }
             }
@@ -385,40 +344,6 @@ process
                     }
 
                     $bioControlsResults[$control] = $bioControlsResult
-
-                    $controlDetails = $bioControlsDetails | Where-Object -FilterScript { $_.ControlNr -eq $control }
-
-                    $detailedBIOControlsResults += [PSCustomObject]@{
-                        ControlNr            = $control
-                        Category             = $controlDetails.Category
-                        BBN                  = $controlDetails.BBN
-                        Title                = $controlDetails.Title
-                        Description          = $controlDetails.Description
-                        ResourceName         = $bioObject.ResourceName
-                        ResourceInstanceName = 'MeasureMissingInExport'
-                        CISNumber            = $bioObject.ResourceInstanceName
-                        MeasuresCount        = 1
-                        Score                = 0
-                        Timestamp            = $timestamp
-                        RequiredMeasure      = $controlDetails.'Government Measure'
-                    }
-                }
-            }
-            else
-            {
-                $detailedBIOControlsResults += [PSCustomObject]@{
-                    ControlNr            = '0'
-                    Category             = 'General Recommended Practice'
-                    BBN                  = '0'
-                    Title                = 'General Recommended Practice'
-                    Description          = 'General Recommended Practice'
-                    ResourceName         = $currentObject.ResourceName
-                    ResourceInstanceName = 'MeasureMissingInExport'
-                    CISNumber            = $bioObject.ResourceInstanceName
-                    MeasuresCount        = 1
-                    Score                = 0
-                    Timestamp            = $timestamp
-                    RequiredMeasure      = 'N/A'
                 }
             }
         }
@@ -426,35 +351,6 @@ process
     }
     Write-Progress -Activity 'Analyzing export' -Completed
     $ProgressPreference = 'SilentlyContinue'
-
-    <#
-    # Disabled because the M365 BIO template doesn't cover all BIO Controls and therefore will always show missing controls.
-    Write-LogEntry -Message 'Checking for BIO Controls that are not covered'
-    $diff = Compare-Object -ReferenceObject ( $detailedBIOControlsResults.ControlNr | Sort-Object -Unique) -DifferenceObject ($bioControlsDetails.ControlNr)
-    $unprocessedControls = $diff | Where-Object { $_.SideIndicator -eq '=>' }
-    if ($unprocessedControls.Count -gt 0)
-    {
-        foreach ($control in $unprocessedControls.InputObject)
-        {
-            $controlDetails = $bioControlsDetails | Where-Object -FilterScript { $_.ControlNr -eq $control }
-
-            $detailedBIOControlsResults += [PSCustomObject]@{
-                ControlNr            = $control
-                Category             = $controlDetails.Category
-                BBN                  = $controlDetails.BBN
-                Title                = $controlDetails.Title
-                Description          = $controlDetails.Description
-                ResourceName         = 'N/A'
-                ResourceInstanceName = 'ControlMissingInExport'
-                CISNumber            = 'N/A'
-                MeasuresCount        = 0
-                Score                = 0
-                Timestamp            = $timestamp
-                RequiredMeasure      = $controlDetails.'Government Measure'
-            }
-        }
-    }
-    #>
 
     Write-LogEntry -Message 'Completed comparing current settings with BIO Baseline'
 
@@ -466,9 +362,10 @@ process
     Write-LogEntry -Message "Saving BIOControls-related results to '$resultBIOControlsFullPath'"
     $bioControlsResults.Values | ConvertTo-Json -Depth 10 | Set-Content -Path $resultBIOControlsFullPath
 
-    # Export Detailed BIOControls-related results to a CSV file
+    # Copy BIO and CIS Details JSON files to Output folder to a CSV file
     Write-LogEntry -Message "Saving Detailed BIOControls-related results to '$resultRulesCSVFullPath'"
-    $detailedBIOControlsResults | Export-Csv -Path $resultRulesCSVFullPath -Delimiter ';' -Encoding UTF8 -NoTypeInformation
+    Copy-Item -Path ".\$allBIOControlsDetailsJson" -Destination $outputFolder
+    Copy-Item -Path ".\$allCISBenchmarkDetailsJson" -Destination $outputFolder
 
     # Display a message indicating the exports completed
     Write-LogEntry -Message "Comparison results exported to 'comparison_results.json'"

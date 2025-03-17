@@ -9,88 +9,98 @@
     "IsEnabled": false
   },
   {
-    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceName": "AADCustomConditionalAccessPolicyMFAEnabledForAdmins",
     "ResourceInstanceName": "CIS-5.2.2.1",
     "BIOControls": [
       "9.2.3"
     ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.1",
-    "BuiltInControls": [
-      "Mfa"
-    ],
-    "IncludeRoles": [
-      "Application Administrator",
-      "Authentication Administrator",
-      "Billing Administrator",
-      "Cloud Application Administrator",
-      "Conditional Access Administrator",
-      "Exchange Administrator",
-      "Global Administrator",
-      "Global Reader",
-      "Helpdesk Administrator",
-      "Password Administrator",
-      "Privileged Authentication Administrator",
-      "Privileged Role Administrator",
-      "Security Administrator",
-      "SharePoint Administrator",
-      "User Administrator"
-    ],
-    "State": "enabled"
+    "FoundRequiredCAPolicy": true
   },
   {
-    "ResourceName": "AADConditionalAccessPolicy",
+    "ResourceName": "AADCustomConditionalAccessPolicyMFAEnabledForUsers",
+    "ResourceInstanceName": "CIS-5.2.2.2",
+    "BIOControls": [
+      "9.1.1",
+      "9.1.2"
+    ],
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicyBlockLegacyAuth",
+    "ResourceInstanceName": "CIS-5.2.2.3",
+    "BIOControls": [
+      "8.1.1",
+      "8.1.2"
+    ],
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicySignInFrequencyEnabledForAdmins",
     "ResourceInstanceName": "CIS-5.2.2.4",
     "BIOControls": [
       "8.1.1",
       "8.1.2",
       "9.4.2"
     ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.4",
-    "IncludeRoles": [
-      "Application Administrator",
-      "Authentication Administrator",
-      "Billing Administrator",
-      "Cloud Application Administrator",
-      "Conditional Access Administrator",
-      "Exchange Administrator",
-      "Global Administrator",
-      "Global Reader",
-      "Helpdesk Administrator",
-      "Password Administrator",
-      "Privileged Authentication Administrator",
-      "Privileged Role Administrator",
-      "Security Administrator",
-      "SharePoint Administrator",
-      "User Administrator"
-    ],
-    "IncludeApplications": [
-      "All"
-    ],
-    "PersistentBrowserIsEnabled": true,
-    "SignInFrequencyIsEnabled": true,
-    "SignInFrequencyInterval": "timeBased",
-    "SignInFrequencyType": "hours",
-    "SignInFrequencyValue": 4,
-    "State": "enabled"
+    "FoundRequiredCAPolicy": true
   },
   {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.2",
+    "ResourceName": "AADCustomConditionalAccessPolicySignInFrequencyEnabledForAdmins",
+    "ResourceInstanceName": "CIS-5.2.2.5",
+    "BIOControls": [
+      "9.2.3"
+    ],
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicyEnableIdentityProtectionUserRisk",
+    "ResourceInstanceName": "CIS-5.2.2.6",
+    "BIOControls": [
+      "12.4.3"
+    ],
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicyEnableIdentityProtectionSignin",
+    "ResourceInstanceName": "CIS-5.2.2.7",
+    "BIOControls": [
+      "12.4.3"
+    ],
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicyLimitAdminCenterToAdmins",
+    "ResourceInstanceName": "CIS-5.2.2.8",
+    "BIOControls": [
+      "100.1"
+    ],
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicyBlockMediumHighSigninRisk",
+    "ResourceInstanceName": "CIS-5.2.2.9",
+    "BIOControls": [
+      "12.4.3"
+    ],
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicyRequireManagedDevice",
+    "ResourceInstanceName": "CIS-5.2.2.10",
     "BIOControls": [
       "9.1.1",
       "9.1.2"
     ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.2",
-    "BuiltInControls": [
-      "Mfa"
+    "FoundRequiredCAPolicy": true
+  },
+  {
+    "ResourceName": "AADCustomConditionalAccessPolicyManagedDeviceForMFARegistration",
+    "ResourceInstanceName": "CIS-5.2.2.11",
+    "BIOControls": [
+      "9.1.1",
+      "9.1.2"
     ],
-    "IncludeUsers": [
-      "All"
-    ],
-    "State": "enabled"
+    "FoundRequiredCAPolicy": true
   },
   {
     "ResourceName": "AADAuthenticationMethodPolicyAuthenticator",
@@ -133,116 +143,6 @@
     },
     "Id": "CIS-5.2.3.1",
     "IsSoftwareOathEnabled": false,
-    "State": "enabled"
-  },
-  {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.5",
-    "BIOControls": [
-      "9.2.3"
-    ],
-    "AuthenticationStrength": "Phishing-resistant MFA",
-    "ClientAppTypes": [
-      "all"
-    ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.5",
-    "IncludeApplications": [
-      "All"
-    ],
-    "IncludeRoles": [
-      "Application Administrator",
-      "Authentication Administrator",
-      "Billing Administrator",
-      "Cloud Application Administrator",
-      "Conditional Access Administrator",
-      "Exchange Administrator",
-      "Global Administrator",
-      "Global Reader",
-      "Helpdesk Administrator",
-      "Password Administrator",
-      "Privileged Authentication Administrator",
-      "Privileged Role Administrator",
-      "Security Administrator",
-      "SharePoint Administrator",
-      "User Administrator"
-    ],
-    "State": "enabled"
-  },
-  {
-    "ResourceName": "AADAuthenticationStrengthPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.5",
-    "BIOControls": [
-      "9.2.3"
-    ],
-    "Ensure": "Present",
-    "AllowedCombinations": [
-      "windowsHelloForBusiness",
-      "fido2",
-      "x509CertificateMultiFactor"
-    ]
-  },
-  {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.3",
-    "BIOControls": [
-      "8.1.1",
-      "8.1.2"
-    ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.3",
-    "ClientAppTypes": [
-      "ExchangeActiveSync",
-      "Other"
-    ],
-    "IncludeUsers": [
-      "All"
-    ],
-    "BuiltInControls": [
-      "Block"
-    ],
-    "State": "enabled"
-  },
-  {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.7",
-    "BIOControls": [
-      "12.4.3"
-    ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.7",
-    "SignInRiskLevels": [
-      "High",
-      "Medium"
-    ],
-    "IncludeUsers": [
-      "All"
-    ],
-    "BuiltInControls": [
-      "mfa"
-    ],
-    "SignInFrequencyInterval": "everyTime",
-    "State": "enabled"
-  },
-  {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.6",
-    "BIOControls": [
-      "12.4.3"
-    ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.6",
-    "UserRiskLevels": [
-      "High"
-    ],
-    "IncludeUsers": [
-      "All"
-    ],
-    "BuiltInControls": [
-      "mfa",
-      "passwordChange"
-    ],
-    "SignInFrequencyInterval": "everyTime",
     "State": "enabled"
   },
   {
@@ -299,42 +199,6 @@
     "PersistentBrowserIsEnabled": false,
     "DeviceFilterMode": "include",
     "DeviceFilterRule": "device.trustType -eq 'AzureAD'"
-  },
-  {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.8",
-    "BIOControls": [
-      "100.1"
-    ],
-    "Ensure": "Present",
-    "Id": "CIS-5.2.2.8",
-    "IncludeUsers": [
-      "All"
-    ],
-    "ExcludeRoles": [
-      "Application Administrator",
-      "Authentication Administrator",
-      "Billing Administrator",
-      "Cloud Application Administrator",
-      "Conditional Access Administrator",
-      "Exchange Administrator",
-      "Global Administrator",
-      "Global Reader",
-      "Helpdesk Administrator",
-      "Password Administrator",
-      "Privileged Authentication Administrator",
-      "Privileged Role Administrator",
-      "Security Administrator",
-      "SharePoint Administrator",
-      "User Administrator"
-    ],
-    "BuiltInControls": [
-      "block"
-    ],
-    "IncludeApplications": [
-      "MicrosoftAdminPortals"
-    ],
-    "State": "enabled"
   },
   {
     "ResourceName": "EXOOrganizationConfig",
@@ -668,7 +532,6 @@
       "12.5.1",
       "12.6.2"
     ],
-    "Identity": "Global",
     "DefaultCatalogAppsType": "BlockedAppList",
     "GlobalCatalogAppsType": "AllowedAppList",
     "PrivateCatalogAppsType": "AllowedAppList"
@@ -1474,73 +1337,6 @@
     "GuestInvitationsAreLimited": true
   },
   {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.9",
-    "BIOControls": [
-      "12.4.3"
-    ],
-    "IncludeApplications": [
-      "All"
-    ],
-    "BuiltInControls": [
-      "block"
-    ],
-    "SignInRiskLevels": [
-      "high",
-      "medium"
-    ],
-    "State": "enabled",
-    "ClientAppTypes": [
-      "all"
-    ],
-    "IncludeUsers": [
-      "All"
-    ]
-  },
-  {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.10",
-    "BIOControls": [
-      "9.1.1",
-      "9.1.2"
-    ],
-    "IncludeApplications": [
-      "All"
-    ],
-    "GrantControlOperator": "OR",
-    "BuiltInControls": [
-      "compliantDevice",
-      "domainJoinedDevice"
-    ],
-    "State": "enabled",
-    "ClientAppTypes": [
-      "all"
-    ],
-    "IncludeUsers": [
-      "All"
-    ]
-  },
-  {
-    "ResourceName": "AADConditionalAccessPolicy",
-    "ResourceInstanceName": "CIS-5.2.2.11",
-    "BIOControls": [
-      "9.1.1",
-      "9.1.2"
-    ],
-    "GrantControlOperator": "OR",
-    "BuiltInControls": [
-      "compliantDevice",
-      "domainJoinedDevice"
-    ],
-    "IncludeUserActions": [
-      "urn:user:registersecurityinfo"
-    ],
-    "State": "enabled",
-    "IncludeUsers": [
-      "All"
-    ]
-  },
-  {
     "ResourceName": "AADCustomWeakAuthenticationMethodsDisabled",
     "ResourceInstanceName": "CIS-5.2.3.5",
     "BIOControls": [
@@ -1610,6 +1406,6 @@
       "14.2.5"
     ],
     "Identity":  "Global",
-    "AllowCloudRecording":  true
+    "AllowCloudRecording":  false
   }
 ]
