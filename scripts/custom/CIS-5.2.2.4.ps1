@@ -96,7 +96,7 @@ else
         ResourceName          = 'AADCustomConditionalAccessPolicySignInFrequencyEnabledForAdmins'
         ResourceInstanceName  = 'CIS-5.2.2.4'
         Id                    = 'Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users'
-        FoundRequiredCAPolicy = $
+        FoundRequiredCAPolicy = $false
     }
 }
 

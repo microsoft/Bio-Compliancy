@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Increased CIS Benchmark coverage, adding checks for all missing controls.
 - Added documentation of CIS Benchmark coverage, added to this repository.
 - Added creation of output transcript to a Logs folder.
+- Added removal of CIMInstance properties to the script.
 
 ### Changed
 

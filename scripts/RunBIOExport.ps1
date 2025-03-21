@@ -241,9 +241,11 @@ process
         return
     }
 
-    Write-LogEntry -Message "Running additional custom exports"
+    Write-LogEntry -Message "Cleaning up exports"
     $script:exportResults = Get-Content -Path $fullReportPath -Raw | ConvertFrom-Json
+    Remove-CimInstance -InputObject $script:exportResults
 
+    Write-LogEntry -Message "Running additional custom exports"
     $customScripts = Get-ChildItem -Path $customScriptsPath -Filter '*.ps1'
     Write-LogEntry -Message "  Found $($customScripts.Count) custom scripts in $customScriptsPath"
     foreach ($script in $customScripts)

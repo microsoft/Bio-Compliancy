@@ -349,4 +349,38 @@ function Test-PSCustomObject
     return $testResult
 }
 
-Export-ModuleMember -Function Write-LogEntry, Assert-IsNonInteractiveShell, Show-CurrentVersion, Test-Value
+function Remove-CIMInstance
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.Object]
+        $InputObject
+    )
+
+    switch ($InputObject.GetType().FullName)
+    {
+        'System.Object[]' {
+            foreach ($item in $InputObject)
+            {
+                Remove-CIMInstance -InputObject $item
+            }
+        }
+        'System.Management.Automation.PSCustomObject' {
+            foreach ($prop in $InputObject.PSObject.Properties)
+            {
+                if ($prop.Name -eq "CIMInstance")
+                {
+                    $InputObject.PSObject.Properties.Remove('CIMInstance')
+                }
+
+                if ($prop.TypeNameOfValue -eq 'System.Object[]' -or $prop.TypeNameOfValue -eq 'System.Management.Automation.PSCustomObject')
+                {
+                    Remove-CIMInstance -InputObject $prop.Value
+                }
+            }
+        }
+    }
+}
+
+Export-ModuleMember -Function Write-LogEntry, Assert-IsNonInteractiveShell, Show-CurrentVersion, Test-Value, Remove-CIMInstance
