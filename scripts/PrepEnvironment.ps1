@@ -59,7 +59,7 @@ begin
         exit -1
     }
 
-    $minimumM365DSCVersion = [System.Version]'1.24.1030.1'
+    $minimumM365DSCVersion = [System.Version]'1.25.509.1'
 
     Write-LogEntry -Message "Starting Preparation script"
     Show-CurrentVersion

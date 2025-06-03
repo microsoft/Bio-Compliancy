@@ -92,7 +92,7 @@ Installeer alle benodigde componenten op de Tools machine door de volgende stapp
     - Zo ja, voer het volgende commando uit `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
     - Zo nee, zorg ervoor dat of de scripts een digitale handtekening krijgen met een vertrouwd certificaat (bij `AllSigned`) of dat scripts (tijdelijk) toegestaan worden (bij `Restricted`)
 6. Indien je gebruik maakt van een Windows client OS (Windows 10 of Windows 11):
-    - Voer het volgende commando uit `winrm quickconfig`.
+    - Voer het volgende commando uit `Enable-PSRemoting -SkipNetworkProfileCheck`.
     - Dit commando configureert Windows Remoting op de machine, wat nodig is tijdens de analyse.
 7. Voer het volgende commando uit: `.\PrepEnvironment.ps1`
 

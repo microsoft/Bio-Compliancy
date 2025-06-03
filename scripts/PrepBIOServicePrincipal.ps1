@@ -135,7 +135,8 @@ process
     $Components = $bioJson.resourceName | Sort-Object | Get-Unique
 
     Write-LogEntry -Message 'Retrieving required permissions'
-    $permissions = Get-M365DSCCompiledPermissionList -ResourceNameList $Components -PermissionType 'Application' -AccessType 'Read'
+    $permissionsList = Get-M365DSCCompiledPermissionList -ResourceNameList $Components -PermissionType 'Application' -AccessType 'Read'
+    $permissions = $permissionsList.Permissions
 
     Write-LogEntry -Message 'Checking additionally required SharePoint permissions'
     $spPerms = @("Sites.FullControl.All","AllSites.FullControl","User.ReadWrite.All")
