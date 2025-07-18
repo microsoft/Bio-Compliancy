@@ -85,7 +85,7 @@ Installeer alle benodigde componenten op de Tools machine door de volgende stapp
     - Bevestig dat je het process met Administrator rechten wil draaien door op 'Yes' te klikken
     - Zodra het window geopend is, controleer of er "Administrator: " voor in de titelbalk staat
 3. Browse naar de folder waar de scripts naar toe gekopieerd zijn
-3. Voer het volgende commando uit: `Get-ChildItem | Unblock-File`
+3. Voer het volgende commando uit: `Get-ChildItem -Recurse | Unblock-File`
 4. Voer het volgende commando uit: `Get-ExecutionPolicy`
 5. Als het antwoord van het vorige commando `Restricted` of `AllSigned` is:
     - Controleer of het mogelijk is c.q. is toegestaan om deze setting aan te passen naar `RemoteSigned`

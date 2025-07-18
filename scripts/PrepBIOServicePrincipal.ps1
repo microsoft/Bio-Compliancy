@@ -250,6 +250,15 @@ process
     {
         $today = (Get-Date).Date
         $cert = Get-ChildItem -Path Cert:\CurrentUser\My | Where-Object { $_.Subject -eq "CN=$ServicePrincipalName" -and $_.NotBefore.Date -eq $today }
+        if ($null -eq $cert)
+        {
+            $cert = Get-ChildItem -Path Cert:\CurrentUser\My | Where-Object { $_.Subject -eq "CN=$ServicePrincipalName" -and $_.NotBefore.Date -le $today }
+            if ($cert.Count -gt 1)
+            {
+                Write-LogEntry -Message "Multiple certificates found for Service Principal '$ServicePrincipalName'. Please specify a custom CertificatePath." -Type Error
+                return
+            }
+        }
     }
 
     $certThumbprint = $cert.Thumbprint

@@ -100,14 +100,108 @@ function Write-LogEntry
     Write-Host # New line
 }
 
+function Test-IsWindowsTerminal
+{
+    [CmdletBinding()]
+    param ()
+
+    # Check if PowerShell version is 5.1 or below, or if running on Windows
+    if ($PSVersionTable.PSVersion.Major -le 5 -or $IsWindows -eq $true)
+    {
+        $currentPid = $PID
+
+        # Loop through parent processes to check if Windows Terminal is in the hierarchy
+        while ($currentPid)
+        {
+            try
+            {
+                $process = Get-CimInstance Win32_Process -Filter "ProcessId = $currentPid" -ErrorAction Stop -Verbose:$false
+            }
+            catch
+            {
+                # Return false if unable to get process information
+                return $false
+            }
+
+            Write-Verbose -Message "ProcessName: $($process.Name), Id: $($process.ProcessId), ParentId: $($process.ParentProcessId)"
+
+            # Check if the current process is Windows Terminal
+            if ($process.Name -eq 'WindowsTerminal.exe')
+            {
+                return $true
+            }
+            else
+            {
+                # Move to the parent process
+                $currentPid = $process.ParentProcessId
+            }
+        }
+
+        # Return false if Windows Terminal is not found in the hierarchy
+        return $false
+    }
+    else
+    {
+        Write-Verbose -Message 'Exiting due to non-Windows environment'
+        return $false
+    }
+}
+
+function Test-IsWindowsTerminal
+{
+    [CmdletBinding()]
+    param ()
+
+    # Check if PowerShell version is 5.1 or below, or if running on Windows
+    if ($PSVersionTable.PSVersion.Major -le 5 -or $IsWindows -eq $true)
+    {
+        $currentPid = $PID
+
+        # Loop through parent processes to check if Windows Terminal is in the hierarchy
+        while ($currentPid)
+        {
+            try
+            {
+                $process = Get-CimInstance Win32_Process -Filter "ProcessId = $currentPid" -ErrorAction Stop -Verbose:$false
+            }
+            catch
+            {
+                # Return false if unable to get process information
+                return $false
+            }
+
+            Write-Verbose -Message "ProcessName: $($process.Name), Id: $($process.ProcessId), ParentId: $($process.ParentProcessId)"
+
+            # Check if the current process is Windows Terminal
+            if ($process.Name -eq 'WindowsTerminal.exe')
+            {
+                return $true
+            }
+            else
+            {
+                # Move to the parent process
+                $currentPid = $process.ParentProcessId
+            }
+        }
+
+        # Return false if Windows Terminal is not found in the hierarchy
+        return $false
+    }
+    else
+    {
+        Write-Verbose -Message 'Exiting due to non-Windows environment'
+        return $false
+    }
+}
+
 function Assert-IsNonInteractiveShell
 {
     # Test each Arg for match of abbreviated '-NonInteractive' command.
     $NonInteractive = [Environment]::GetCommandLineArgs() | Where-Object { $_ -like '-NonI*' }
 
-    if ([Environment]::UserInteractive -and -not $NonInteractive)
+    if ([Environment]::UserInteractive -and -not $NonInteractive -and -not (Test-IsWindowsTerminal))
     {
-        # We are in an interactive shell.
+        # We are in an interactive shell, but not in Windows Terminal.
         return $false
     }
 
@@ -360,23 +454,25 @@ function Remove-CIMInstance
 
     switch ($InputObject.GetType().FullName)
     {
-        'System.Object[]' {
+        'System.Object[]'
+        {
             foreach ($item in $InputObject)
             {
-                Remove-CIMInstance -InputObject $item
+                Remove-CimInstance -InputObject $item
             }
         }
-        'System.Management.Automation.PSCustomObject' {
+        'System.Management.Automation.PSCustomObject'
+        {
             foreach ($prop in $InputObject.PSObject.Properties)
             {
-                if ($prop.Name -eq "CIMInstance")
+                if ($prop.Name -eq 'CIMInstance')
                 {
                     $InputObject.PSObject.Properties.Remove('CIMInstance')
                 }
 
                 if ($prop.TypeNameOfValue -eq 'System.Object[]' -or $prop.TypeNameOfValue -eq 'System.Management.Automation.PSCustomObject')
                 {
-                    Remove-CIMInstance -InputObject $prop.Value
+                    Remove-CimInstance -InputObject $prop.Value
                 }
             }
         }
