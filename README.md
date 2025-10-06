@@ -5,7 +5,7 @@
 > [!NOTE]
 > Voor de BIO Compliancy oplossing voor Azure, ga naar dit project: https://github.com/Azure/Bio-Compliancy
 
-Dit project omvat een Initiative Policy Template, welke kan worden vergeleken met Microsoft 365 door middel van [Microsoft 365 Desired State Configuration](https://microsoft365dsc.com) (M365DSC). 
+Dit project omvat een Initiative Policy Template, welke kan worden vergeleken met Microsoft 365 door middel van [Microsoft 365 Desired State Configuration](https://microsoft365dsc.com) (M365DSC).
 Dit project wordt geleverd inclusief een PowerBI dashboard zodat men kan auditen of resources in een Microsoft 365 omgeving voldoen aan de BIO (Baseline informatiebeveiliging Overheid).
 
 De BIO is het basisnormenkader voor informatiebeveiliging binnen alle overheidslagen. De BIO is van toepassing voor de volgende bestuursorganen:
@@ -23,12 +23,12 @@ Meer informatie hierover vind je op: [CIP overheid Cloud thema](https://cip-over
 ## Mappen van BIO Controls op maatregelen in Microsoft 365
 De BIO beschrijft een aantal controls en maatregelen welke overheidsinstanties kunnen gebruiken om risico's met betrekking tot informatie beveiliging te mitigeren. Deze maatregelen zijn grotendeels gebaseerd op industriestandaarden, zoals ISO IEC 27002. Meer informatie kan gevonden worden op de website van [BIO Overheid](https://www.bio-overheid.nl/category/producten?product=Handreiking_BIO2_0_opmaat).
 
-De controls en maatregelen beschrijven diverse mitigaties, van technologisch en fysiek tot procedureel en organisatorisch. 
+De controls en maatregelen beschrijven diverse mitigaties, van technologisch en fysiek tot procedureel en organisatorisch.
 
 > [!IMPORTANT]
 > DISLAIMER: Deze BIO assessment tool, gericht op het beoordelen van de technische configuratie van Microsoft 365 (de publieke clouddienst), zal niet alle controls omvatten en dient daarom alleen gebruikt te worden om inzicht te krijgen in potentiële misconfiguratie van een Microsoft 365 tenant in relatie tot BIO controls.
 
-Om tot een betrouwbare mapping te komen, worden verschillende industrie standaarden gebruikt. Ten eerste wordt de ['Center for Internet Security' (CIS) Benchmark for Microsoft 365 (v3.0.0)](https://www.cisecurity.org/benchmark/microsoft_365) gebruikt als het startpunt voor een aanzienlijke hoeveelheid aanbevolen controls. In dit document worden alle controls gemapped op 'CIS Control Safeguards'. 
+Om tot een betrouwbare mapping te komen, worden verschillende industrie standaarden gebruikt. Ten eerste wordt de ['Center for Internet Security' (CIS) Benchmark for Microsoft 365 (v4.0.0)](https://www.cisecurity.org/benchmark/microsoft_365) gebruikt als het startpunt voor een aanzienlijke hoeveelheid aanbevolen controls. In dit document worden alle controls gemapped op 'CIS Control Safeguards'.
 Deze zijn vervolgens door CIS gemapped op de ['ISO 27002 2022'](https://www.cisecurity.org/insights/white-papers/cis-controls-v8-mapping-to-iso-iec2-27002-2022) standaard. De BIO is vervolgens weer gebaseerd op deze 'ISO 27002 2022' standaard, waardoor de cirkel van de CIS Benchmark for Microsoft 365 naar de BIO 2022 rond is.
 
 ![alt text](./media/CISforM365ToBIO.png?raw=true "CIS for M365 to BIO mapping")
@@ -37,6 +37,10 @@ Naast de CIS Benchmark, zijn de maatregelen om de BIO 2022 controls af te dekken
 
 Beperkingen:
 - Op dit moment dekt de blueprint de core services in Microsoft 365 af, inclusief Entra ID (Azure AD), Exchange Online, SharePoint Online, OneDrive for Business, Teams, Purview and Defender for Office 365. Ondersteuning voor Intune wordt aan gewerkt.
+
+### Gedetailleerd mapping overzicht
+
+Een volledig overzicht van de verschillende mappings en controls is in [dit bestand](./BIO_ISO_CIS%20Mapping.xlsx) te vinden. Hierin zijn alle BIO, ISO27002, CIS SafeGuard en CIS Benchmark controls uitgewerkt, inclusief hoe deze op elkaar gemapt zijn.
 
 ## Bijdragen
 
@@ -53,6 +57,8 @@ Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.
 Om deze oplossing te gebruiken, zijn een aantal zaken vereist:
 - Tools machine waar de oplossing op uitgevoerd kan worden
   - Deze moet een versie van Windows draaien die nog in support is. Dit kan een client of server versie van Windows zijn.
+  - DNS toegang om Internet domeinnamen te valideren.
+    - Op het moment dat dit niet mogelijk is, zal de rapportage false positives weergeven. Deze moeten dan handmatig gecontroleerd worden.
 - Service principal met de juiste rechten.
   - Deze wordt aangemaakt tijdens de stap 'Aanmaken van de service principal'
 - Administratieve credentials met 'Global Administrator' rechten
@@ -79,14 +85,14 @@ Installeer alle benodigde componenten op de Tools machine door de volgende stapp
     - Bevestig dat je het process met Administrator rechten wil draaien door op 'Yes' te klikken
     - Zodra het window geopend is, controleer of er "Administrator: " voor in de titelbalk staat
 3. Browse naar de folder waar de scripts naar toe gekopieerd zijn
-3. Voer het volgende commando uit: `Get-ChildItem | Unblock-File`
+3. Voer het volgende commando uit: `Get-ChildItem -Recurse | Unblock-File`
 4. Voer het volgende commando uit: `Get-ExecutionPolicy`
 5. Als het antwoord van het vorige commando `Restricted` of `AllSigned` is:
     - Controleer of het mogelijk is c.q. is toegestaan om deze setting aan te passen naar `RemoteSigned`
     - Zo ja, voer het volgende commando uit `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
     - Zo nee, zorg ervoor dat of de scripts een digitale handtekening krijgen met een vertrouwd certificaat (bij `AllSigned`) of dat scripts (tijdelijk) toegestaan worden (bij `Restricted`)
-6. Indien je gebruik maakt van een Windows client OS (Windows 10 of Windows 11): 
-    - Voer het volgende commando uit `winrm quickconfig`.
+6. Indien je gebruik maakt van een Windows client OS (Windows 10 of Windows 11):
+    - Voer het volgende commando uit `Enable-PSRemoting -SkipNetworkProfileCheck`.
     - Dit commando configureert Windows Remoting op de machine, wat nodig is tijdens de analyse.
 7. Voer het volgende commando uit: `.\PrepEnvironment.ps1`
 
@@ -149,10 +155,10 @@ Om de analyze resultaten opnieuw in te lezen, klik op de **Home** ribbon op de *
 ## Achtergrond informatie
 
 Tijdens de analyze worden alle geëxporteerde componenten vergeleken met de BIO. Dit betekent dat het mogelijk is dat er false positives worden gerapporteerd. Wanneer  een set aan instellingen b.v. over meerdere policies verdeeld zijn en gebruikers  een combinatie van deze policies toegewezen krijgen, is het eindresultaat vanuit gebruikersperspectief compliant maar het resultaat van de individuele policies niet. Dit laatste wordt weergegeven in de rapportage.
- 
+
 ### Voorbeeld
 Policy1 zet Setting1, Policy2 zet Setting2 en Policy3 zet Setting3. In het toepassen van de policies krijgen alle users Policy1, maar de helft van de users Policy2 en de andere helft Policy3.
- 
+
 De BIO beschrijft dat Setting1 altijd ingesteld moet worden. Dit is door het toepassen van de combinatie van policies het geval, echter puur kijkend naar de policies, hebben Policy2 en Policy3 natuurlijk niet Setting1 ingesteld en worden die dus aangegeven als non-compliant.
 
 ## Disclaimer

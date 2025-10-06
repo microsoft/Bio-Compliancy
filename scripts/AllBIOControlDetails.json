@@ -1,0 +1,1162 @@
+﻿[
+    {
+        "Category":  "5",
+        "Category Title":  "Informatiebeveiligingsbeleid",
+        "Subcategory":  "5.1",
+        "Subcategory Title":  "Aansturing door de directie van de informatiebeveiliging",
+        "Control":  "5.1.1",
+        "Control Title":  "Beleidsregels voor informatiebeveiliging",
+        "Control Description":  "Ten behoeve van informatiebeveiliging behoort een reeks beleidsregels te worden gedefinieerd, goedgekeurd door de directie, gepubliceerd en gecommuniceerd aan medewerkers en relevante externe partijen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "5",
+        "Category Title":  "Informatiebeveiligingsbeleid",
+        "Subcategory":  "5.1",
+        "Subcategory Title":  "Aansturing door de directie van de informatiebeveiliging",
+        "Control":  "5.1.2",
+        "Control Title":  "Beoordeling van het informatiebeveiligingsbeleid",
+        "Control Description":  "Het beleid voor informatiebeveiliging behoort met geplande tussenpozen of als zich significante veranderingen voordoen, te worden beoordeeld om te waarborgen dat het voortdurend passend, adequaat en doeltreffend is.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "6",
+        "Category Title":  "Organiseren van informatiebeveiliging",
+        "Subcategory":  "6.1",
+        "Subcategory Title":  "Interne organisatie",
+        "Control":  "6.1.1",
+        "Control Title":  "Rollen en verantwoordelijkheden bij informatiebeveiliging",
+        "Control Description":  "Alle verantwoordelijkheden bij informatiebeveiliging behoren te worden gedefinieerd en toegewezen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "6",
+        "Category Title":  "Organiseren van informatiebeveiliging",
+        "Subcategory":  "6.1",
+        "Subcategory Title":  "Interne organisatie",
+        "Control":  "6.1.2",
+        "Control Title":  "Scheiding van taken",
+        "Control Description":  "Conflicterende taken en verantwoordelijkheden behoren te worden gescheiden om de kans op onbevoegd of onbedoeld wijzigen of misbruik van de bedrijfsmiddelen van de organisatie te verminderen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "6",
+        "Category Title":  "Organiseren van informatiebeveiliging",
+        "Subcategory":  "6.1",
+        "Subcategory Title":  "Interne organisatie",
+        "Control":  "6.1.3",
+        "Control Title":  "Contact met overheidsinstanties",
+        "Control Description":  "Er behoren passende contacten met relevante overheidsinstanties te worden onderhouden.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "6",
+        "Category Title":  "Organiseren van informatiebeveiliging",
+        "Subcategory":  "6.1",
+        "Subcategory Title":  "Interne organisatie",
+        "Control":  "6.1.4",
+        "Control Title":  "Vervallen",
+        "Control Description":  "Vervallen",
+        "BBN":  "0"
+    },
+    {
+        "Category":  "6",
+        "Category Title":  "Organiseren van informatiebeveiliging",
+        "Subcategory":  "6.1",
+        "Subcategory Title":  "Interne organisatie",
+        "Control":  "6.1.5",
+        "Control Title":  "Informatiebeveiliging in projectbeheer",
+        "Control Description":  "Informatiebeveiliging behoort aan de orde te komen in projectbeheer, ongeacht het soort project.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "6",
+        "Category Title":  "Organiseren van informatiebeveiliging",
+        "Subcategory":  "6.2",
+        "Subcategory Title":  "Mobiele apparatuur en telewerken",
+        "Control":  "6.2.1",
+        "Control Title":  "Beleid voor mobiele apparatuur",
+        "Control Description":  "Beleid en ondersteunende beveiligingsmaatregelen behoren te worden vastgesteld om de risico’s die het gebruik van mobiele apparatuur met zich meebrengt te beheren.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "6",
+        "Category Title":  "Organiseren van informatiebeveiliging",
+        "Subcategory":  "6.2",
+        "Subcategory Title":  "Mobiele apparatuur en telewerken",
+        "Control":  "6.2.2",
+        "Control Title":  "Telewerken",
+        "Control Description":  "Beleid en ondersteunende beveiligingsmaatregelen behoren te worden geïmplementeerd ter beveiliging van informatie die vanaf telewerklocaties wordt benaderd, verwerkt of opgeslagen.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "7",
+        "Category Title":  "Veilig personeel",
+        "Subcategory":  "7.1",
+        "Subcategory Title":  "Voorafgaand aan het dienstverband",
+        "Control":  "7.1.1",
+        "Control Title":  "Screening",
+        "Control Description":  "Verificatie van de achtergrond van alle kandidaten voor een dienstverband behoort te worden uitgevoerd in overeenstemming met relevante wet- en regelgeving en ethische overwegingen en behoort in verhouding te staan tot de bedrijfseisen, de classificatie van de informatie waartoe toegang wordt verleend en de vastgestelde risico’s te zijn.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "7",
+        "Category Title":  "Veilig personeel",
+        "Subcategory":  "7.1",
+        "Subcategory Title":  "Voorafgaand aan het dienstverband",
+        "Control":  "7.1.2",
+        "Control Title":  "Arbeidsvoorwaarden",
+        "Control Description":  "De contractuele overeenkomst met medewerkers en contractanten behoort hun verantwoordelijkheden voor informatiebeveiliging en die van de organisatie te vermelden.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "7",
+        "Category Title":  "Veilig personeel",
+        "Subcategory":  "7.2",
+        "Subcategory Title":  "Tijdens het dienstverband",
+        "Control":  "7.2.1",
+        "Control Title":  "Directieverantwoordelijkheden",
+        "Control Description":  "De directie behoort van alle medewerkers en contractanten te eisen dat ze informatiebeveiliging toepassen in overeenstemming met de vastgestelde beleidsregels en procedures van de organisatie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "7",
+        "Category Title":  "Veilig personeel",
+        "Subcategory":  "7.2",
+        "Subcategory Title":  "Tijdens het dienstverband",
+        "Control":  "7.2.2",
+        "Control Title":  "Bewustzijn, opleiding en training ten aanzien van informatiebeveiliging",
+        "Control Description":  "Alle medewerkers van de organisatie en, voor zover relevant, contractanten behoren een passende bewustzijnsopleiding en -training te krijgen en regelmatige bijscholing van beleidsregels en procedures van de organisatie, voor zover relevant voor hun functie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "7",
+        "Category Title":  "Veilig personeel",
+        "Subcategory":  "7.2",
+        "Subcategory Title":  "Tijdens het dienstverband",
+        "Control":  "7.2.3",
+        "Control Title":  "Disciplinaire procedure",
+        "Control Description":  "Er behoort een formele en gecommuniceerde disciplinaire procedure te zijn om actie te ondernemen tegen medewerkers die een inbreuk hebben gepleegd op de informatiebeveiliging.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "7",
+        "Category Title":  "Veilig personeel",
+        "Subcategory":  "7.3",
+        "Subcategory Title":  "Beëindiging en wijziging van dienstverband",
+        "Control":  "7.3.1",
+        "Control Title":  "Beëindiging of wijziging van verantwoordelijkheden van het dienstverband",
+        "Control Description":  "Verantwoordelijkheden en taken met betrekking tot informatiebeveiliging die van kracht blijven na beëindiging of wijziging van het dienstverband behoren te worden gedefinieerd, gecommuniceerd aan de medewerker of contractant, en ten uitvoer gebracht.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.1",
+        "Subcategory Title":  "Verantwoordelijkheid voor bedrijfsmiddelen",
+        "Control":  "8.1.1",
+        "Control Title":  "Inventariseren van bedrijfsmiddelen",
+        "Control Description":  "Informatie, andere bedrijfsmiddelen die samenhangen met informatie en informatie verwerkende faciliteiten behoren te worden geïdentificeerd, en van deze bedrijfsmiddelen behoort een inventaris te worden opgesteld en onderhouden.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.1",
+        "Subcategory Title":  "Verantwoordelijkheid voor bedrijfsmiddelen",
+        "Control":  "8.1.2",
+        "Control Title":  "Eigendom van bedrijfsmiddelen",
+        "Control Description":  "Bedrijfsmiddelen die in het inventarisoverzicht worden bijgehouden, behoren een eigenaar te hebben.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.1",
+        "Subcategory Title":  "Verantwoordelijkheid voor bedrijfsmiddelen",
+        "Control":  "8.1.3",
+        "Control Title":  "Aanvaardbaar gebruik van bedrijfsmiddelen",
+        "Control Description":  "Voor het aanvaardbaar gebruik van informatie en van bedrijfsmiddelen die samenhangen met informatie en informatie verwerkende faciliteiten behoren regels te worden geïdentificeerd, gedocumenteerd en geïmplementeerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.1",
+        "Subcategory Title":  "Verantwoordelijkheid voor bedrijfsmiddelen",
+        "Control":  "8.1.4",
+        "Control Title":  "Teruggeven van bedrijfsmiddelen",
+        "Control Description":  "Alle medewerkers en externe gebruikers moeten alle bedrijfsmiddelen van de organisatie die ze in hun bezit hebben bij beëindiging van hun dienstverband, contract of overeenkomst terug te geven.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.2",
+        "Subcategory Title":  "Informatieclassificatie",
+        "Control":  "8.2.1",
+        "Control Title":  "Classificatie van informatie",
+        "Control Description":  "Informatie behoort te worden geclassificeerd met betrekking tot wettelijke eisen, waarde, belang en gevoeligheid voor onbevoegde bekendmaking of wijziging.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.2",
+        "Subcategory Title":  "Informatieclassificatie",
+        "Control":  "8.2.2",
+        "Control Title":  "Informatie labelen",
+        "Control Description":  "Om informatie te labelen behoort een passende reeks procedures te worden ontwikkeld en geïmplementeerd in overeenstemming met het informatieclassificatieschema dat is vastgesteld door de organisatie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.2",
+        "Subcategory Title":  "Informatieclassificatie",
+        "Control":  "8.2.3",
+        "Control Title":  "Behandelen van bedrijfsmiddelen",
+        "Control Description":  "Procedures voor het behandelen van bedrijfsmiddelen behoren te worden ontwikkeld en geïmplementeerd in overeenstemming met het informatieclassificatieschema dat is vastgesteld door de organisatie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.3",
+        "Subcategory Title":  "Behandelen van media",
+        "Control":  "8.3.1",
+        "Control Title":  "Beheer van verwijderbare media",
+        "Control Description":  "Voor het beheren van verwijderbare media behoren procedures te worden geïmplementeerd in overeenstemming met het classificatieschema dat door de organisatie is vastgesteld.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.3",
+        "Subcategory Title":  "Behandelen van media",
+        "Control":  "8.3.2",
+        "Control Title":  "Verwijderen van media",
+        "Control Description":  "Media behoren op een veilige en beveiligde manier te worden verwijderd als ze niet langer nodig zijn, overeenkomstig formele procedures.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "8",
+        "Category Title":  "Beheer van bedrijfsmiddelen",
+        "Subcategory":  "8.3",
+        "Subcategory Title":  "Behandelen van media",
+        "Control":  "8.3.3",
+        "Control Title":  "Media fysiek overdragen",
+        "Control Description":  "Media die informatie bevatten, behoren te worden beschermd tegen onbevoegde toegang, misbruik of corruptie tijdens transport.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.1",
+        "Subcategory Title":  "Bedrijfseisen voor toegangsbeveiliging",
+        "Control":  "9.1.1",
+        "Control Title":  "Beleid voor toegangsbeveiliging",
+        "Control Description":  "Een beleid voor toegangsbeveiliging behoort te worden vastgesteld, gedocumenteerd en beoordeeld op basis van bedrijfs- en informatiebeveiligingseisen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.1",
+        "Subcategory Title":  "Bedrijfseisen voor toegangsbeveiliging",
+        "Control":  "9.1.2",
+        "Control Title":  "Toegang tot netwerken en netwerkdiensten",
+        "Control Description":  "Gebruikers behoren alleen toegang te krijgen tot het netwerk en de netwerkdiensten waarvoor zij specifiek bevoegd zijn.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.2",
+        "Subcategory Title":  "Beheer van toegangsrechten van gebruikers",
+        "Control":  "9.2.1",
+        "Control Title":  "Registratie en afmelden van gebruikers",
+        "Control Description":  "Een formele registratie- en afmeldingsprocedure behoort te worden geïmplementeerd om toewijzing van toegangsrechten mogelijk te maken.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.2",
+        "Subcategory Title":  "Beheer van toegangsrechten van gebruikers",
+        "Control":  "9.2.2",
+        "Control Title":  "Gebruikers toegang verlenen",
+        "Control Description":  "Een formele gebruikerstoegangsverleningsprocedure behoort te worden geïmplementeerd om toegangsrechten voor alle typen gebruikers en voor alle systemen en diensten toe te wijzen of in te trekken.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.2",
+        "Subcategory Title":  "Beheer van toegangsrechten van gebruikers",
+        "Control":  "9.2.3",
+        "Control Title":  "Beheren van speciale toegangsrechten",
+        "Control Description":  "Het toewijzen en gebruik van speciale toegangsrechten behoren te worden beperkt en beheerst.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.2",
+        "Subcategory Title":  "Beheer van toegangsrechten van gebruikers",
+        "Control":  "9.2.4",
+        "Control Title":  "Beheer van geheime authenticatie-informatie van gebruikers",
+        "Control Description":  "Het toewijzen van geheime authenticatie-informatie behoort te worden beheerst via een formeel beheersproces.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.2",
+        "Subcategory Title":  "Beheer van toegangsrechten van gebruikers",
+        "Control":  "9.2.5",
+        "Control Title":  "Beoordeling van toegangsrechten van gebruikers",
+        "Control Description":  "Eigenaren van bedrijfsmiddelen behoren toegangsrechten van gebruikers regelmatig te beoordelen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.2",
+        "Subcategory Title":  "Beheer van toegangsrechten van gebruikers",
+        "Control":  "9.2.6",
+        "Control Title":  "Toegangsrechten intrekken of aanpassen",
+        "Control Description":  "De toegangsrechten van alle medewerkers en externe gebruikers voor informatie en informatie verwerkende faciliteiten behoren bij beëindiging van hun dienstverband, contract of overeenkomst te worden verwijderd, en bij wijzigingen behoren ze te worden aangepast.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.3",
+        "Subcategory Title":  "Verantwoordelijkheden van gebruikers",
+        "Control":  "9.3.1",
+        "Control Title":  "Geheime authenticatie-informatie gebruiken",
+        "Control Description":  "Van gebruikers behoort te worden verlangd dat zij zich bij het gebruiken van geheime authenticatie-informatie houden aan de praktijk van de organisatie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.4",
+        "Subcategory Title":  "Toegangsbeveiliging van systeem en toepassing",
+        "Control":  "9.4.1",
+        "Control Title":  "Beperking toegang tot informatie",
+        "Control Description":  "Toegang tot informatie en systeemfuncties van toepassingen behoort te worden beperkt in overeenstemming met het beleid voor toegangsbeveiliging.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.4",
+        "Subcategory Title":  "Toegangsbeveiliging van systeem en toepassing",
+        "Control":  "9.4.2",
+        "Control Title":  "Beveiligde inlogprocedures",
+        "Control Description":  "Indien het beleid voor toegangsbeveiliging dit vereist, behoort toegang tot systemen en toepassingen te worden beheerst door een beveiligde inlogprocedure.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.4",
+        "Subcategory Title":  "Toegangsbeveiliging van systeem en toepassing",
+        "Control":  "9.4.3",
+        "Control Title":  "Systeem voor wachtwoordbeheer",
+        "Control Description":  "Systemen voor wachtwoordbeheer behoren interactief te zijn en sterke wachtwoorden te waarborgen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.4",
+        "Subcategory Title":  "Toegangsbeveiliging van systeem en toepassing",
+        "Control":  "9.4.4",
+        "Control Title":  "Speciale systeemhulpmiddelen gebruiken",
+        "Control Description":  "Het gebruik van systeemhulpmiddelen die in staat zijn om beheersmaatregelen voor systemen en toepassingen te omzeilen behoort te worden beperkt en nauwkeurig te worden gecontroleerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "9",
+        "Category Title":  "Toegangsbeveiliging",
+        "Subcategory":  "9.4",
+        "Subcategory Title":  "Toegangsbeveiliging van systeem en toepassing",
+        "Control":  "9.4.5",
+        "Control Title":  "Toegangsbeveiliging op programmabroncode",
+        "Control Description":  "Toegang tot de programmabroncode behoort te worden beperkt.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "10",
+        "Category Title":  "Cryptografie",
+        "Subcategory":  "10.1",
+        "Subcategory Title":  "Cryptografische beheersmaatregelen",
+        "Control":  "10.1.1",
+        "Control Title":  "Beleid inzake het gebruik van cryptografische beheersmaatregelen",
+        "Control Description":  "Ter bescherming van informatie behoort een beleid voor het gebruik van cryptografische beheersmaatregelen te worden ontwikkeld en geïmplementeerd.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "10",
+        "Category Title":  "Cryptografie",
+        "Subcategory":  "10.1",
+        "Subcategory Title":  "Cryptografische beheersmaatregelen",
+        "Control":  "10.1.2",
+        "Control Title":  "Sleutelbeheer",
+        "Control Description":  "Er dient beleid te worden ontwikkeld en geïmplementeerd met betrekking tot het gebruik, de bescherming en de levensduur van cryptografische sleutels welke de gehele levensduur van de cryptografische sleutels omvat.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.1",
+        "Subcategory Title":  "Beveiligde gebieden",
+        "Control":  "11.1.1",
+        "Control Title":  "Fysieke beveiligingszone",
+        "Control Description":  "Beveiligingszones behoren te worden gedefinieerd en gebruikt om gebieden te beschermen die gevoelige of essentiële informatie en informatie verwerkende faciliteiten bevatten.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.1",
+        "Subcategory Title":  "Beveiligde gebieden",
+        "Control":  "11.1.2",
+        "Control Title":  "Fysieke toegangsbeveiliging",
+        "Control Description":  "Beveiligde gebieden behoren te worden beschermd door passende toegangsbeveiliging om ervoor te zorgen dat alleen bevoegd personeel toegang krijgt.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.1",
+        "Subcategory Title":  "Beveiligde gebieden",
+        "Control":  "11.1.3",
+        "Control Title":  "Kantoren, ruimten en faciliteiten beveiligen",
+        "Control Description":  "Voor kantoren, ruimten en faciliteiten behoort fysieke beveiliging te worden ontworpen en toegepast.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.1",
+        "Subcategory Title":  "Beveiligde gebieden",
+        "Control":  "11.1.4",
+        "Control Title":  "Beschermen tegen bedreigingen van buitenaf",
+        "Control Description":  "Tegen natuurrampen, kwaadwillige aanvallen of ongelukken behoort fysieke bescherming te worden ontworpen en toegepast.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.1",
+        "Subcategory Title":  "Beveiligde gebieden",
+        "Control":  "11.1.5",
+        "Control Title":  "Werken in beveiligde gebieden",
+        "Control Description":  "Voor het werken in beveiligde gebieden behoren procedures te worden ontwikkeld en toegepast.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.1",
+        "Subcategory Title":  "Beveiligde gebieden",
+        "Control":  "11.1.6",
+        "Control Title":  "Laad- en loslocatie",
+        "Control Description":  "Toegangspunten zoals laad- en loslocaties en andere punten waar onbevoegde personen het terrein kunnen betreden, behoren te worden beheerst, en zo mogelijk te worden afgeschermd van informatie verwerkende faciliteiten om onbevoegde toegang te vermijden.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.1",
+        "Control Title":  "Plaatsing en bescherming van apparatuur",
+        "Control Description":  "Apparatuur behoort zo te worden geplaatst en beschermd dat risico’s van bedreigingen en gevaren van buitenaf, alsook de kans op onbevoegde toegang worden verkleind.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.2",
+        "Control Title":  "Nutsvoorzieningen",
+        "Control Description":  "Apparatuur behoort te worden beschermd tegen stroomuitval en andere verstoringen die worden veroorzaakt door ontregelingen in nutsvoorzieningen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.3",
+        "Control Title":  "Beveiliging van bekabeling",
+        "Control Description":  "Voedings- en telecommunicatiekabels voor het versturen van gegevens of die informatiediensten ondersteunen, behoren te worden beschermd tegen interceptie, verstoring of schade.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.4",
+        "Control Title":  "Onderhoud van apparatuur",
+        "Control Description":  "Apparatuur behoort correct te worden onderhouden om de continue beschikbaarheid en integriteit ervan te waarborgen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.5",
+        "Control Title":  "Verwijdering van bedrijfsmiddelen",
+        "Control Description":  "Apparatuur, informatie en software behoren niet van de locatie te worden meegenomen zonder voorafgaande goedkeuring.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.6",
+        "Control Title":  "Beveiliging van apparatuur en bedrijfsmiddelen buiten het terrein",
+        "Control Description":  "Bedrijfsmiddelen die zich buiten het terrein bevinden, behoren te worden beveiligd, waarbij rekening behoort te worden gehouden met de verschillende risico’s van werken buiten het terrein van de organisatie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.7",
+        "Control Title":  "Veilig verwijderen of hergebruiken van apparatuur",
+        "Control Description":  "Alle onderdelen van de apparatuur die opslagmedia bevatten, behoren te worden geverifieerd om te waarborgen dat gevoelige gegevens en in licentie gegeven software voorafgaand aan verwijdering of hergebruik zijn verwijderd of betrouwbaar veilig zijn overschreven.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.8",
+        "Control Title":  "Onbeheerde gebruikersapparatuur",
+        "Control Description":  "Gebruikers moeten ervoor zorgen dat onbeheerde apparatuur voldoende beschermd is.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "11",
+        "Category Title":  "Fysieke beveiliging en beveiliging van de omgeving",
+        "Subcategory":  "11.2",
+        "Subcategory Title":  "Apparatuur",
+        "Control":  "11.2.9",
+        "Control Title":  "‘Clear desk’- en ‘clear screen’-beleid",
+        "Control Description":  "Er behoort een ‘clear desk’-beleid voor papieren documenten en verwijderbare opslagmedia en een ‘clear screen’-beleid voor informatie verwerkende faciliteiten te worden ingesteld.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.1",
+        "Subcategory Title":  "Bedieningsprocedures en verantwoordelijkheden",
+        "Control":  "12.1.1",
+        "Control Title":  "Gedocumenteerde bedieningsprocedures",
+        "Control Description":  "Bedieningsprocedures behoren te worden gedocumenteerd en beschikbaar te worden gesteld aan alle gebruikers die ze nodig hebben.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.1",
+        "Subcategory Title":  "Bedieningsprocedures en verantwoordelijkheden",
+        "Control":  "12.1.2",
+        "Control Title":  "Wijzigingsbeheer",
+        "Control Description":  "Veranderingen in de organisatie, bedrijfsprocessen, informatie verwerkende faciliteiten en systemen die van invloed zijn op de informatiebeveiliging behoren te worden beheerst.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.1",
+        "Subcategory Title":  "Bedieningsprocedures en verantwoordelijkheden",
+        "Control":  "12.1.3",
+        "Control Title":  "Capaciteitsbeheer",
+        "Control Description":  "Het gebruik van middelen behoort te worden gemonitord en afgestemd, en er behoren verwachtingen te worden opgesteld voor toekomstige capaciteitseisen om de vereiste systeemprestaties te waarborgen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.1",
+        "Subcategory Title":  "Bedieningsprocedures en verantwoordelijkheden",
+        "Control":  "12.1.4",
+        "Control Title":  "Scheiding van ontwikkel-, test- en productieomgevingen",
+        "Control Description":  "Ontwikkel-, test- en productieomgevingen behoren te worden gescheiden om het risico van onbevoegde toegang tot of veranderingen aan de productieomgeving te verlagen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.2",
+        "Subcategory Title":  "Bescherming tegen malware",
+        "Control":  "12.2.1",
+        "Control Title":  "Beheersmaatregelen tegen malware",
+        "Control Description":  "Ter bescherming tegen malware behoren beheersmaatregelen voor detectie, preventie en herstel te worden geïmplementeerd, in combinatie met een passend bewustzijn van gebruikers.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.3",
+        "Subcategory Title":  "Back-up",
+        "Control":  "12.3.1",
+        "Control Title":  "Back-up van informatie",
+        "Control Description":  "Regelmatig behoren back-upkopieën van informatie, software en systeemafbeeldingen te worden gemaakt en getest in overeenstemming met een overeengekomen back-upbeleid.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.4",
+        "Subcategory Title":  "Verslaglegging en monitoren",
+        "Control":  "12.4.1",
+        "Control Title":  "Gebeurtenissen registreren",
+        "Control Description":  "Logbestanden van gebeurtenissen die gebruikersactiviteiten, uitzonderingen en informatiebeveiligingsgebeurtenissen registreren, behoren te worden gemaakt, bewaard en regelmatig te worden beoordeeld.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.4",
+        "Subcategory Title":  "Verslaglegging en monitoren",
+        "Control":  "12.4.2",
+        "Control Title":  "Beschermen van informatie in logbestanden",
+        "Control Description":  "Logfaciliteiten en informatie in logbestanden behoren te worden beschermd tegen vervalsing en onbevoegde toegang.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.4",
+        "Subcategory Title":  "Verslaglegging en monitoren",
+        "Control":  "12.4.3",
+        "Control Title":  "Logbestanden van beheerders en operators",
+        "Control Description":  "Activiteiten van systeembeheerders en -operators behoren te worden vastgelegd en de logbestanden behoren te worden beschermd en regelmatig te worden beoordeeld.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.4",
+        "Subcategory Title":  "Verslaglegging en monitoren",
+        "Control":  "12.4.4",
+        "Control Title":  "Kloksynchronisatie",
+        "Control Description":  "De klokken van alle relevante informatie verwerkende systemen binnen een organisatie of beveiligingsdomein behoren te worden gesynchroniseerd met één referentietijdbron.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.5",
+        "Subcategory Title":  "Beheersing van operationele software",
+        "Control":  "12.5.1",
+        "Control Title":  "Software installeren op operationele systemen",
+        "Control Description":  "Om het op operationele systemen installeren van software te beheersen behoren procedures te worden geïmplementeerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.6",
+        "Subcategory Title":  "Beheer van technische kwetsbaarheden",
+        "Control":  "12.6.1",
+        "Control Title":  "Beheer van technische kwetsbaarheden",
+        "Control Description":  "Informatie over technische kwetsbaarheden van informatiesystemen die worden gebruikt behoort tijdig te worden verkregen, de blootstelling van de organisatie aan dergelijke kwetsbaarheden te worden geëvalueerd en passende maatregelen te worden genomen om het risico dat ermee samenhangt aan te pakken.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.6",
+        "Subcategory Title":  "Beheer van technische kwetsbaarheden",
+        "Control":  "12.6.2",
+        "Control Title":  "Beperkingen voor het installeren van software",
+        "Control Description":  "Voor het door gebruikers installeren van software behoren regels te worden vastgesteld en te worden geïmplementeerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "12",
+        "Category Title":  "Beveiliging bedrijfsvoering",
+        "Subcategory":  "12.7",
+        "Subcategory Title":  "Overwegingen betreffende audits van informatiesystemen",
+        "Control":  "12.7.1",
+        "Control Title":  "Beheersmaatregelen betreffende audits van informatiesystemen",
+        "Control Description":  "Auditeisen en -activiteiten die verificatie van uitvoeringssystemen met zich meebrengen, behoren zorgvuldig te worden gepland en afgestemd om bedrijfsprocessen zo min mogelijk te verstoren.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "13",
+        "Category Title":  "Communicatiebeveiliging",
+        "Subcategory":  "13.1",
+        "Subcategory Title":  "Beheer van netwerkbeveiliging",
+        "Control":  "13.1.1",
+        "Control Title":  "Beheersmaatregelen voor netwerken",
+        "Control Description":  "Netwerken behoren te worden beheerd en beheerst om informatie in systemen en toepassingen te beschermen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "13",
+        "Category Title":  "Communicatiebeveiliging",
+        "Subcategory":  "13.1",
+        "Subcategory Title":  "Beheer van netwerkbeveiliging",
+        "Control":  "13.1.2",
+        "Control Title":  "Beveiliging van netwerkdiensten",
+        "Control Description":  "Beveiligingsmechanismen, dienstverleningsniveaus en beheer eisen voor alle netwerkdiensten behoren te worden geïdentificeerd en opgenomen in overeenkomsten betreffende netwerkdiensten. Dit geldt zowel voor diensten die intern worden geleverd als voor uitbestede diensten.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "13",
+        "Category Title":  "Communicatiebeveiliging",
+        "Subcategory":  "13.1",
+        "Subcategory Title":  "Beheer van netwerkbeveiliging",
+        "Control":  "13.1.3",
+        "Control Title":  "Scheiding in netwerken",
+        "Control Description":  "Groepen van informatiediensten, -gebruikers en -systemen behoren in netwerken te worden gescheiden.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "13",
+        "Category Title":  "Communicatiebeveiliging",
+        "Subcategory":  "13.2",
+        "Subcategory Title":  "Informatietransport",
+        "Control":  "13.2.1",
+        "Control Title":  "Beleid en procedures voor informatietransport",
+        "Control Description":  "Ter bescherming van het informatietransport, dat via alle soorten communicatiefaciliteiten verloopt, behoren formele beleidsregels, procedures en beheersmaatregelen voor transport van kracht te zijn.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "13",
+        "Category Title":  "Communicatiebeveiliging",
+        "Subcategory":  "13.2",
+        "Subcategory Title":  "Informatietransport",
+        "Control":  "13.2.2",
+        "Control Title":  "Overeenkomsten over informatietransport",
+        "Control Description":  "Overeenkomsten behoren betrekking te hebben op het beveiligd transporteren van bedrijfsinformatie tussen de organisatie en externe partijen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "13",
+        "Category Title":  "Communicatiebeveiliging",
+        "Subcategory":  "13.2",
+        "Subcategory Title":  "Informatietransport",
+        "Control":  "13.2.3",
+        "Control Title":  "Elektronische berichten",
+        "Control Description":  "Informatie die is opgenomen in elektronische berichten behoord passend te zijn beschermd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "13",
+        "Category Title":  "Communicatiebeveiliging",
+        "Subcategory":  "13.2",
+        "Subcategory Title":  "Informatietransport",
+        "Control":  "13.2.4",
+        "Control Title":  "Vertrouwelijkheids- of geheimhoudingsovereenkomst",
+        "Control Description":  "Eisen voor vertrouwelijkheids- of geheimhoudingsovereenkomsten die de behoeften van de organisatie betreffende het beschermen van informatie weerspiegelen, behoren te worden vastgesteld, regelmatig te worden beoordeeld en gedocumenteerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.1",
+        "Subcategory Title":  "Beveiligingseisen voor informatiesystemen",
+        "Control":  "14.1.1",
+        "Control Title":  "Analyse en specificatie van informatiebeveiligingseisen",
+        "Control Description":  "De eisen die verband houden met informatiebeveiliging behoren te worden opgenomen in de eisen voor nieuwe informatiesystemen of voor uitbreidingen van bestaande informatiesystemen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.1",
+        "Subcategory Title":  "Beveiligingseisen voor informatiesystemen",
+        "Control":  "14.1.2",
+        "Control Title":  "Toepassingen op openbare netwerken beveiligen",
+        "Control Description":  "Informatie die deel uitmaakt van uitvoeringsdiensten en die via openbare netwerken wordt uitgewisseld, behoort te worden beschermd tegen frauduleuze activiteiten, geschillen over contracten en onbevoegde openbaarmaking en wijziging.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.1",
+        "Subcategory Title":  "Beveiligingseisen voor informatiesystemen",
+        "Control":  "14.1.3",
+        "Control Title":  "Transacties van toepassingen beschermen",
+        "Control Description":  "Informatie die deel uitmaakt van transacties van toepassingen behoort te worden beschermd ter voorkoming van onvolledige overdracht, foutieve routering, onbevoegd wijzigen van berichten, onbevoegd openbaar maken, onbevoegd vermenigvuldigen of afspelen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.1",
+        "Control Title":  "Beleid voor beveiligd ontwikkelen",
+        "Control Description":  "Voor het ontwikkelen van software en systemen behoren regels te worden vastgesteld en op ontwikkelactiviteiten binnen de organisatie te worden toegepast.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.2",
+        "Control Title":  "Procedures voor wijzigingsbeheer met betrekking tot systemen",
+        "Control Description":  "Wijzigingen aan systemen binnen de levenscyclus van de ontwikkeling behoren te worden beheerst door het gebruik van formele procedures voor wijzigingsbeheer.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.3",
+        "Control Title":  "Technische beoordeling van toepassingen na wijzigingen besturingsplatform",
+        "Control Description":  "Als besturingsplatforms zijn veranderd, behoren bedrijfskritische toepassingen te worden beoordeeld en getest om te waarborgen dat er geen nadelige impact is op de activiteiten of de beveiliging van de organisatie.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.4",
+        "Control Title":  "Vervallen",
+        "Control Description":  "Vervallen",
+        "BBN":  "0"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.5",
+        "Control Title":  "Principes voor engineering van beveiligde systemen",
+        "Control Description":  "Principes voor de engineering van beveiligde systemen behoren te worden vastgesteld, gedocumenteerd, onderhouden en toegepast voor alle verrichtingen betreffende het implementeren van informatiesystemen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.6",
+        "Control Title":  "Beveiligde ontwikkelomgeving",
+        "Control Description":  "Organisaties behoren beveiligde ontwikkelomgevingen vast te stellen en passend te beveiligen voor verrichtingen op het gebied van systeemontwikkeling en integratie, die betrekking hebben op de gehele levenscyclus van de systeemontwikkeling.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.7",
+        "Control Title":  "Uitbestede softwareontwikkeling",
+        "Control Description":  "Uitbestede systeemontwikkeling behoort onder supervisie te staan van en te worden gemonitord door de organisatie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.8",
+        "Control Title":  "Testen van systeembeveiliging",
+        "Control Description":  "Tijdens ontwikkelactiviteiten behoort de beveiligingsfunctionaliteit te worden getest.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.2",
+        "Subcategory Title":  "Beveiliging in ontwikkelings- en ondersteunende processen",
+        "Control":  "14.2.9",
+        "Control Title":  "Systeemacceptatietests",
+        "Control Description":  "Voor nieuwe informatiesystemen, upgrades en nieuwe versies behoren programma’s voor het uitvoeren van acceptatietests en gerelateerde criteria te worden vastgesteld.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "14",
+        "Category Title":  "Acquisitie, ontwikkeling en onderhoud van informatiesystemen",
+        "Subcategory":  "14.3",
+        "Subcategory Title":  "Testgegevens",
+        "Control":  "14.3.1",
+        "Control Title":  "Bescherming van testgegevens",
+        "Control Description":  "Testgegevens behoren zorgvuldig te worden gekozen, beschermd en gecontroleerd.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "15",
+        "Category Title":  "Leveranciersrelaties",
+        "Subcategory":  "15.1",
+        "Subcategory Title":  "Informatiebeveiliging in leveranciersrelaties",
+        "Control":  "15.1.1",
+        "Control Title":  "Informatiebeveiligingsbeleid voor leveranciersrelaties",
+        "Control Description":  "Met de leverancier behoren de informatiebeveiligingseisen om risico’s te verlagen die verband houden met de toegang van de leverancier tot de bedrijfsmiddelen van de organisatie, te worden overeengekomen en gedocumenteerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "15",
+        "Category Title":  "Leveranciersrelaties",
+        "Subcategory":  "15.1",
+        "Subcategory Title":  "Informatiebeveiliging in leveranciersrelaties",
+        "Control":  "15.1.2",
+        "Control Title":  "Opnemen van beveiligingsaspecten in leveranciersovereenkomsten",
+        "Control Description":  "Alle relevante informatiebeveiligingseisen behoren te worden vastgesteld en overeengekomen met elke leverancier die toegang heeft tot IT infrastructuurelementen ten behoeve van de informatie van de organisatie, of deze verwerkt, opslaat, communiceert of biedt.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "15",
+        "Category Title":  "Leveranciersrelaties",
+        "Subcategory":  "15.1",
+        "Subcategory Title":  "Informatiebeveiliging in leveranciersrelaties",
+        "Control":  "15.1.3",
+        "Control Title":  "Toeleveringsketen van informatie- en communicatietechnologie",
+        "Control Description":  "Overeenkomsten met leveranciers behoren eisen te bevatten die betrekking hebben op de informatiebeveiligingsrisico’s in verband met de toeleveringsketen van de diensten en producten op het gebied van informatie- en communicatietechnologie.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "15",
+        "Category Title":  "Leveranciersrelaties",
+        "Subcategory":  "15.2",
+        "Subcategory Title":  "Beheer van dienstverlening van leveranciers",
+        "Control":  "15.2.1",
+        "Control Title":  "Monitoring en beoordeling van dienstverlening van leveranciers",
+        "Control Description":  "Organisaties behoren regelmatig de dienstverlening van leveranciers te monitoren, te beoordelen en te auditen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "15",
+        "Category Title":  "Leveranciersrelaties",
+        "Subcategory":  "15.2",
+        "Subcategory Title":  "Beheer van dienstverlening van leveranciers",
+        "Control":  "15.2.2",
+        "Control Title":  "Beheer van veranderingen in dienstverlening van leveranciers",
+        "Control Description":  "Veranderingen in de dienstverlening van leveranciers, met inbegrip van handhaving en verbetering van bestaande beleidslijnen, procedures en beheersmaatregelen voor informatiebeveiliging, behoren te worden, beheerd, rekening houdend met de kritikaliteit van bedrijfsinformatie, betrokken systemen en processen en herbeoordeling van risico’s.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "16",
+        "Category Title":  "Beheer van informatie beveiligingsincidenten",
+        "Subcategory":  "16.1",
+        "Subcategory Title":  "Beheer van informatiebeveiligingsincidenten en -verbeteringen",
+        "Control":  "16.1.1",
+        "Control Title":  "Verantwoordelijkheden en procedures",
+        "Control Description":  "Directieverantwoordelijkheden en -procedures behoren te worden vastgesteld om een snelle, doeltreffende en ordelijke respons op informatiebeveiligingsincidenten te bewerkstelligen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "16",
+        "Category Title":  "Beheer van informatie beveiligingsincidenten",
+        "Subcategory":  "16.1",
+        "Subcategory Title":  "Beheer van informatiebeveiligingsincidenten en -verbeteringen",
+        "Control":  "16.1.2",
+        "Control Title":  "Rapportage van informatiebeveiligingsgebeurtenissen",
+        "Control Description":  "Informatiebeveiligingsgebeurtenissen behoren zo snel mogelijk via de juiste leidinggevende niveaus te worden gerapporteerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "16",
+        "Category Title":  "Beheer van informatie beveiligingsincidenten",
+        "Subcategory":  "16.1",
+        "Subcategory Title":  "Beheer van informatiebeveiligingsincidenten en -verbeteringen",
+        "Control":  "16.1.3",
+        "Control Title":  "Rapportage van zwakke plekken in de informatiebeveiliging",
+        "Control Description":  "Van medewerkers en contractanten die gebruikmaken van de informatiesystemen en -diensten van de organisatie behoort te worden geëist dat zij de in systemen of diensten waargenomen of vermeende zwakke plekken in de informatiebeveiliging registreren en rapporteren.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "16",
+        "Category Title":  "Beheer van informatie beveiligingsincidenten",
+        "Subcategory":  "16.1",
+        "Subcategory Title":  "Beheer van informatiebeveiligingsincidenten en -verbeteringen",
+        "Control":  "16.1.4",
+        "Control Title":  "Beoordeling van en besluitvorming over informatiebeveiligingsgebeurtenissen",
+        "Control Description":  "Informatiebeveiligingsgebeurtenissen behoren te worden beoordeeld en er behoort te worden geoordeeld of zij moeten worden geclassificeerd als informatiebeveiligingsincidenten.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "16",
+        "Category Title":  "Beheer van informatie beveiligingsincidenten",
+        "Subcategory":  "16.1",
+        "Subcategory Title":  "Beheer van informatiebeveiligingsincidenten en -verbeteringen",
+        "Control":  "16.1.5",
+        "Control Title":  "Respons op informatiebeveiligingsincidenten",
+        "Control Description":  "Op informatiebeveiligingsincidenten behoort te worden gereageerd in overeenstemming met de gedocumenteerde procedures.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "16",
+        "Category Title":  "Beheer van informatie beveiligingsincidenten",
+        "Subcategory":  "16.1",
+        "Subcategory Title":  "Beheer van informatiebeveiligingsincidenten en -verbeteringen",
+        "Control":  "16.1.6",
+        "Control Title":  "Lering uit informatiebeveiligingsincidenten",
+        "Control Description":  "Kennis die is verkregen door informatiebeveiligingsincidenten te analyseren en op te lossen behoort te worden gebruikt om de waarschijnlijkheid of impact van toekomstige incidenten te verkleinen.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "16",
+        "Category Title":  "Beheer van informatie beveiligingsincidenten",
+        "Subcategory":  "16.1",
+        "Subcategory Title":  "Beheer van informatiebeveiligingsincidenten en -verbeteringen",
+        "Control":  "16.1.7",
+        "Control Title":  "Verzamelen van bewijsmateriaal",
+        "Control Description":  "De organisatie behoort procedures te definiëren en toe te passen voor het identificeren, verzamelen, verkrijgen en bewaren van informatie die als bewijs kan dienen.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "17",
+        "Category Title":  "Informatiebeveiligings aspecten van bedrijfs continuïteitsbeheer",
+        "Subcategory":  "17.1",
+        "Subcategory Title":  "Informatiebeveiligingscontinuïteit",
+        "Control":  "17.1.1",
+        "Control Title":  "Informatiebeveiligingscontinuïteit plannen",
+        "Control Description":  "De organisatie behoort haar eisen voor informatiebeveiliging en voor de continuïteit van het informatiebeveiligingsbeheer in ongunstige situaties, bijv. een crisis of een ramp, vast te stellen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "17",
+        "Category Title":  "Informatiebeveiligings aspecten van bedrijfs continuïteitsbeheer",
+        "Subcategory":  "17.1",
+        "Subcategory Title":  "Informatiebeveiligingscontinuïteit",
+        "Control":  "17.1.2",
+        "Control Title":  "Informatiebeveiligingscontinuïteit implementeren",
+        "Control Description":  "De organisatie behoort processen, procedures en beheersmaatregelen vast te stellen, te documenteren, te implementeren en te handhaven om het vereiste niveau van continuïteit voor informatiebeveiliging tijdens een ongunstige situatie te waarborgen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "17",
+        "Category Title":  "Informatiebeveiligings aspecten van bedrijfs continuïteitsbeheer",
+        "Subcategory":  "17.1",
+        "Subcategory Title":  "Informatiebeveiligingscontinuïteit",
+        "Control":  "17.1.3",
+        "Control Title":  "Informatiebeveiligingscontinuïteit verifiëren, beoordelen en evalueren",
+        "Control Description":  "De organisatie behoort de ten behoeve van informatiebeveiligingscontinuïteit vastgestelde en geïmplementeerde beheersmaatregelen regelmatig te verifiëren om te waarborgen dat ze deugdelijk en doeltreffend zijn tijdens ongunstige situaties.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "17",
+        "Category Title":  "Informatiebeveiligings aspecten van bedrijfs continuïteitsbeheer",
+        "Subcategory":  "17.2",
+        "Subcategory Title":  "Redundante componenten",
+        "Control":  "17.2.1",
+        "Control Title":  "Beschikbaarheid van informatie verwerkende faciliteiten",
+        "Control Description":  "Informatie verwerkende faciliteiten behoren met voldoende redundantie te worden geïmplementeerd om aan beschikbaarheidseisen te voldoen.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.1",
+        "Subcategory Title":  "Naleving van wettelijke en contractuele eisen",
+        "Control":  "18.1.1",
+        "Control Title":  "Vaststellen van toepasselijke wetgeving en contractuele eisen",
+        "Control Description":  "Alle relevante wettelijke statutaire, regelgevende, contractuele eisen en de aanpak van de organisatie om aan deze eisen te voldoen behoren voor elk informatiesysteem en de organisatie expliciet te worden vastgesteld, gedocumenteerd en actueel gehouden.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.1",
+        "Subcategory Title":  "Naleving van wettelijke en contractuele eisen",
+        "Control":  "18.1.2",
+        "Control Title":  "Intellectuele-eigendomsrechten",
+        "Control Description":  "Om de naleving van wettelijke, regelgevende en contractuele eisen in verband met intellectuele eigendomsrechten en het gebruik van eigendomssoftwareproducten te waarborgen behoren passende procedures te worden geïmplementeerd.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.1",
+        "Subcategory Title":  "Naleving van wettelijke en contractuele eisen",
+        "Control":  "18.1.3",
+        "Control Title":  "Beschermen van registraties",
+        "Control Description":  "Registraties behoren in overeenstemming met wettelijke, regelgevende, contractuele en bedrijfseisen te worden beschermd tegen verlies, vernietiging, vervalsing, onbevoegde toegang en onbevoegde vrijgave.",
+        "BBN":  "2"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.1",
+        "Subcategory Title":  "Naleving van wettelijke en contractuele eisen",
+        "Control":  "18.1.4",
+        "Control Title":  "Privacy en bescherming van persoonsgegevens",
+        "Control Description":  "Privacy en bescherming van persoonsgegevens behoren, voor zover van toepassing, te worden gewaarborgd in overeenstemming met relevante wet- en regelgeving.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.1",
+        "Subcategory Title":  "Naleving van wettelijke en contractuele eisen",
+        "Control":  "18.1.5",
+        "Control Title":  "Voorschriften voor het gebruik van cryptografische beheersmaatregelen",
+        "Control Description":  "Cryptografische beheersmaatregelen behoren te worden toegepast in overeenstemming met alle relevante overeenkomsten, wet- en regelgeving.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.2",
+        "Subcategory Title":  "Informatiebeveiligingsbeoordelingen",
+        "Control":  "18.2.1",
+        "Control Title":  "Onafhankelijke beoordeling van informatiebeveiliging",
+        "Control Description":  "De aanpak van de organisatie ten aanzien van het beheer van informatiebeveiliging en de implementatie ervan (bijv. beheerdoelstellingen, beheersmaatregelen, beleidsregels, processen en procedures voor informatiebeveiliging), behoren onafhankelijk en met geplande tussenpozen of zodra zich belangrijke veranderingen voordoen te worden beoordeeld.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.2",
+        "Subcategory Title":  "Informatiebeveiligingsbeoordelingen",
+        "Control":  "18.2.2",
+        "Control Title":  "Naleving van beveiligingsbeleid en -normen",
+        "Control Description":  "De directie behoort regelmatig de naleving van de informatieverwerking en - procedures binnen haar verantwoordelijkheidsgebied te beoordelen aan de hand van de desbetreffende beleidsregels, normen en andere eisen betreffende beveiliging.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "18",
+        "Category Title":  "Naleving",
+        "Subcategory":  "18.2",
+        "Subcategory Title":  "Informatiebeveiligingsbeoordelingen",
+        "Control":  "18.2.3",
+        "Control Title":  "Beoordeling van technische naleving",
+        "Control Description":  "Informatiesystemen behoren regelmatig te worden beoordeeld op naleving van de beleidsregels en normen van de organisatie voor informatiebeveiliging.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "100",
+        "Category Title":  "Overig",
+        "Subcategory":  "100.1",
+        "Subcategory Title":  "Microsoft 365 Benchmark toewijzing ontbreekt",
+        "Control":  "100.1",
+        "Control Title":  "Microsoft 365 Benchmark toewijzing ontbreekt",
+        "Control Description":  "Deze Microsoft 365 Benchmark Control is niet toegewezen aan een CIS SafeGuard control en daarmee ook niet aan een ISO Control en BIO Control.",
+        "BBN":  "1"
+    },
+    {
+        "Category":  "100",
+        "Category Title":  "Overig",
+        "Subcategory":  "100.2",
+        "Subcategory Title":  "ISO Control toewijzing ontbreekt",
+        "Control":  "100.2",
+        "Control Title":  "ISO Control toewijzing ontbreekt",
+        "Control Description":  "De CIS SafeGuard Control waar deze Microsoft 365 Benchmark Control aan is toegewezen is niet toegewezen aan een ISO Control en daarmee ook niet aan een BIO Control.",
+        "BBN":  "1"
+    }
+]
