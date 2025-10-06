@@ -134,6 +134,9 @@ process
     $bioJson = Get-Content -Raw -Path $fullBIOPath | ConvertFrom-Json
     $Components = $bioJson.resourceName | Sort-Object | Get-Unique
 
+    Write-LogEntry -Message 'Filtering custom components'
+    $Components = $Components | Where-Object -FilterScript { $_ -notlike '*Custom*' }
+
     Write-LogEntry -Message 'Retrieving required permissions'
     $permissionsList = Get-M365DSCCompiledPermissionList -ResourceNameList $Components -PermissionType 'Application' -AccessType 'Read'
     $permissions = $permissionsList.Permissions
@@ -168,9 +171,12 @@ process
 
     $azureADApp = Get-MgApplication -Filter "DisplayName eq '$($ServicePrincipalName)'"
 
+    $perms = @{}
+    $perms.Permissions = $permissions
+
     $params = @{
         ApplicationName = $ServicePrincipalName
-        Permissions     = $permissions
+        Permissions     = $perms
         AdminConsent    = $true
         Credential      = $Credential
         Type            = 'Certificate'
@@ -272,9 +278,10 @@ process
     Write-LogEntry -Message "TenantId             : $tenantid"
     Write-LogEntry -Message "TenantName           : $domainName"
     Write-LogEntry -Message "CertificateThumbprint: $certThumbprint"
-    Write-LogEntry -Message "ApplicationId        : $applicationId"
     Write-LogEntry -Message 'NOTE: Make sure you copy these details for the next steps!'
     Write-LogEntry -Message ' '
+    Write-LogEntry -Message 'Run the following command to execute the BIO Data Export:'
+    Write-LogEntry -Message ".\RunBIOExport.ps1 -ApplicationId $applicationId -TenantId $domainName -CertificateThumbprint $certThumbprint"
 
     if ($aadPremiumP2Found -eq $true)
     {

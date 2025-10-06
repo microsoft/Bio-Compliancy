@@ -1052,7 +1052,7 @@
     "Ensure": "Absent"
   },
   {
-    "ResourceName": "EXOExternalInOutlook ",
+    "ResourceName": "EXOExternalInOutlook",
     "ResourceInstanceName": "CIS-6.2.3",
     "BIOControls": [
       "100.1"
@@ -1088,7 +1088,7 @@
     "OAuth2ClientProfileEnabled": true
   },
   {
-    "ResourceName": "EXOMailTips",
+    "ResourceName": "EXOOrganizationConfig",
     "ResourceInstanceName": "CIS-6.5.2",
     "BIOControls": [
       "100.1"
