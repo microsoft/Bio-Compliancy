@@ -7,29 +7,34 @@ $null = New-M365DSCConnection -Workload 'MicrosoftGraph' `
     CertificateThumbprint = $CertificateThumbprint
 }
 
-$result = Invoke-MgGraphRequest -Uri https://graph.microsoft.com/beta/legacy/policies
-$definition = $result.value.definition | ConvertFrom-Json
+$policyValue = 'Unknown'
 
-$domains = @()
-if ($null -ne $definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy)
+$result = Invoke-MgGraphRequest -Uri https://graph.microsoft.com/beta/legacy/policies
+
+if ($result.value.Count -gt 0)
 {
-    $policyValue = 'Unknown'
-    if ($definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.PSObject.Properties | Where-Object { $_.Name -eq 'BlockedDomains' })
+    $definition = $result.value.definition | ConvertFrom-Json
+
+    $domains = @()
+    if ($null -ne $definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy)
     {
-        $domains = $definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.BlockedDomains
-        if ($domains.Count -eq 0)
+        if ($definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.PSObject.Properties | Where-Object { $_.Name -eq 'BlockedDomains' })
         {
-            $policyValue = 'AllowAnyDomains'
+            $domains = $definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.BlockedDomains
+            if ($domains.Count -eq 0)
+            {
+                $policyValue = 'AllowAnyDomains'
+            }
+            else
+            {
+                $policyValue = 'DenySpecifiedDomains'
+            }
         }
-        else
+        elseif ($definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.PSObject.Properties | Where-Object { $_.Name -eq 'AllowedDomains' })
         {
-            $policyValue = 'DenySpecifiedDomains'
+            $domains = $definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.AllowedDomains
+            $policyValue = 'AllowOnlySpecifiedDomains'
         }
-    }
-    elseif ($definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.PSObject.Properties | Where-Object { $_.Name -eq 'AllowedDomains' })
-    {
-        $domains = $definition.B2BManagementPolicy.InvitationsAllowedAndBlockedDomainsPolicy.AllowedDomains
-        $policyValue = 'AllowOnlySpecifiedDomains'
     }
 }
 
