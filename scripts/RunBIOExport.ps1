@@ -160,6 +160,8 @@ process
     {
         $bioJson = Get-Content -Raw -Path $fullBIOPath | ConvertFrom-Json
         $Components = $bioJson.resourceName | Sort-Object | Get-Unique
+
+        $Components = $Components | Where-Object -FilterScript { $_ -notlike '*Custom*' }
     }
     else
     {
